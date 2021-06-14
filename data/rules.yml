@@ -1,0 +1,57 @@
+version: "2.0"
+
+rules:
+- rule: Greet user
+  steps:
+    - intent: greet
+    - action: utter_greet
+    
+- rule: Thank you
+  steps:
+    - intent: thankyou
+    - action: utter_noworries
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Apologize for error and reset the slots
+  steps:
+  - intent: deny
+  - action: utter_default
+  - action: action_clear_slots
+
+- rule: Activate race results form
+  steps:
+  - intent: request_race_results
+  - action: race_result_form
+  - active_loop: race_result_form
+
+- rule: Submit race results form form
+  condition:
+  - active_loop: race_result_form
+  steps:
+  - action: race_result_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: action_search_race_result
+
+- rule: Activate drivers by constructor form
+  steps:
+  - intent: request_drivers_by_constructor
+  - action: drivers_by_constructor_form
+  - active_loop: drivers_by_constructor_form
+
+- rule: Submit drivers by constructor form
+  condition:
+  - active_loop: drivers_by_constructor_form
+  steps:
+  - action: drivers_by_constructor_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: action_search_drivers_by_constructor

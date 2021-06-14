@@ -1,0 +1,142 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- stop:
+    use_entities: true
+- thankyou:
+    use_entities: true
+- inform:
+    use_entities: true
+- search_season_winner:
+    use_entities: true
+- search_driver:
+    use_entities: true
+- request_race_results:
+    use_entities: true
+- request_drivers_by_constructor:
+    use_entities: true
+entities:
+- year
+- driver
+- circuit
+- is_interested_in_driver
+- constructor
+slots:
+  year:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  driver:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  circuit:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  constructor:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  is_interested_in_driver:
+    type: rasa.shared.core.slots.BooleanSlot
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: Hey! How can I help?
+  - text: Hey there! I'm listening.
+  - text: Hello, I'm ready to help you.
+  utter_goodbye:
+  - text: Bye, have a nice day
+  - text: Bye bye, see ya
+  utter_rejoice:
+  - text: Great! Here's what I found.
+  - text: Yeah ;)
+  - text: Fantastic. Here you are.
+  - text: Whoah, I'm too good.
+  utter_noworries:
+  - text: You are welcome :)
+  - text: Happy to be helpful.
+  - text: I'm glad you found me usefull.
+  utter_submit:
+  - text: Looking into it.
+  - text: Here it comes.
+  - text: Processing.
+  utter_default:
+  - text: Sorry, I didn't understand you, please try input something else.
+  - text: I'm sorry. Let's try again.
+  utter_ask_year:
+  - text: In which year?
+  utter_ask_circuit:
+  - text: |-
+      Which circuit are you interested in?
+      (name of the circuit, name of the event or hosting country)
+  - text: |-
+      Can you tell me the circuit please?
+      (name of the circuit, name of the event or hosting country)
+  - text: |-
+      Specify the circuit.
+      (name of the circuit, name of the event or hosting country)
+  utter_ask_is_interested_in_driver:
+  - buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No
+    text: Are you interested in any particular driver?
+  utter_ask_driver:
+  - text: Specify the driver.
+  - text: What's the driver's name?
+  utter_ask_constructor:
+  - text: You need to specify the constructor.
+  - text: Need for a scuderia name.
+  - text: Which team are you interested in?
+actions:
+- utter_greet
+- utter_goodbye
+- utter_rejoice
+- utter_noworries
+- utter_default
+- utter_ask_year
+- utter_ask_circuit
+- utter_ask_is_interested_in_driver
+- utter_ask_driver
+- action_clear_slots
+- action_search_winner_by_year
+- action_search_driver
+- action_search_race_result
+- action_search_drivers_by_constructor
+- validate_race_result_form
+- validate_drivers_by_constructor_form
+forms:
+  race_result_form:
+    required_slots:
+      year:
+      - type: from_text
+      circuit:
+      - type: from_text
+  drivers_by_constructor_form:
+    required_slots:
+      constructor:
+      - type: from_text
+e2e_actions: []

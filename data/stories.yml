@@ -1,0 +1,100 @@
+version: "2.0"
+
+stories:
+
+- story: Welcome
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: Goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Ask year
+  steps:
+  - intent: search_season_winner
+  - slot_was_set:
+      - year: null
+  - action: utter_ask_year
+  - intent: inform
+  - action: action_search_winner_by_year
+
+- story: Ask winner by year
+  steps:
+  - intent: search_season_winner
+    entities:
+      - year: "2021" 
+  - action: action_search_winner_by_year
+
+- story: Ask correct driver
+  steps:
+  - intent: search_driver
+    entities:
+      - driver: "Carlos Sainz"
+  - action: action_search_driver
+
+- story: Ask wrong driver
+  steps:
+  - intent: search_driver
+    entities:
+      - driver: "Schumacher"
+  - action: action_search_driver
+  - intent: deny
+  - action: utter_default
+  - intent: search_driver
+    entities:
+      - driver: "mick schumacher"
+  - action: action_search_driver
+  - intent: affirm
+  - action: utter_noworries
+
+- story: Explain race form (no driver)
+  steps:
+  - intent: request_race_results
+  - action: race_result_form
+  - active_loop: race_result_form
+  - slot_was_set:
+    - year: "2019"
+  - slot_was_set:
+    - circuit: "Silverstone"
+  - slot_was_set:
+    - is_interested_in_driver: False
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: action_search_race_result
+
+- story: Explain race form (with driver)
+  steps:
+  - intent: request_race_results
+  - action: race_result_form
+  - active_loop: race_result_form
+  - slot_was_set:
+    - year: "2019"
+  - slot_was_set:
+    - circuit: "Silverstone"
+  - slot_was_set:
+    - is_interested_in_driver: True
+  - slot_was_set:
+    - driver: "Hamilton"
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: action_search_race_result
+
+- story: Explain drivers by constructor form
+  steps:
+  - intent: request_drivers_by_constructor
+  - action: drivers_by_constructor_form
+  - active_loop: drivers_by_constructor_form
+  - slot_was_set:
+    - constructor: "Mercedes"
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: action_search_drivers_by_constructor
