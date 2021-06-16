@@ -38,6 +38,7 @@ nlu:
     - hi?
     - hey bot!
     - hello friend
+    - morning
 - intent: goodbye
   examples: |
     - good afternoon
@@ -130,6 +131,29 @@ nlu:
     - and you call yourself bot company? pff
     - and that's it?
     - nothing else?
+- intent: request_info
+  examples: |
+    - what are you capable of?
+    - tell me what you do
+    - help
+    - need info
+    - what can you do?
+    - what are your functionalities?
+    - what are you able to do?
+    - list of questions I can ask
+    - what can I ask to you?
+    - what can I ask?
+    - need some help
+    - list of questions
+    - what are your skills?
+    - tell me what you're able to do
+    - tell me what you are able to do
+- intent: request_joke
+  examples: |
+    - make me laugh
+    - tell me a joke
+    - I want to laugh
+    - Tell an F1 joke please
 - intent: search_season_winner
   examples: |
     - who was the winner in [1987](year)?
@@ -177,6 +201,7 @@ nlu:
     - [1997](year)
     - for [2019](year)
     - for the [2018](year) season
+    - [2020](year)
 - intent: request_race_results
   examples: |
     - Give me the results of the race
@@ -189,6 +214,9 @@ nlu:
     - Looking for race results
     - What was the result of the [Austrian](circuit) Grand Prix
     - [Singapore](circuit) [2020](year) results
+    - great, I'm looking for a race result
+    - [Emilia Romagna](circuit) Grand Prix
+    - I want to know the race results of the [British](circuit) Grand Prix in [2008](year)  
 - intent: request_drivers_by_constructor
   examples: |
     - Who drives for [Ferrari](constructor)?
@@ -200,7 +228,7 @@ nlu:
     - which are the drivers of [Haas](constructor) racing team?
     - tell me the [Alpha Tauri](constructor) pilots
     - who is racing for [AlfaRomeo](constructor)?
-    - which are the pilots for 
+    - which were the [Force India](constructor) pilots for the [2014](year) season?
     - drivers for [mclaren](constructor)
     - who drove for [Sauber](constructor) in [2015](year)?
     - I want the [Force India](constructor) drivers for the [2018](year) season?

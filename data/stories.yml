@@ -43,6 +43,7 @@ stories:
   - action: action_search_driver
   - intent: deny
   - action: utter_default
+  - action: action_reset_all_slots
   - intent: search_driver
     entities:
       - driver: "mick schumacher"
@@ -50,36 +51,50 @@ stories:
   - intent: affirm
   - action: utter_noworries
 
-- story: Explain race form (no driver)
+- story: Ask race results (ranking path)
   steps:
   - intent: request_race_results
   - action: race_result_form
   - active_loop: race_result_form
   - slot_was_set:
+    - requested_slot: year
+  - slot_was_set:
     - year: "2019"
+  - slot_was_set:
+    - requested_slot: circuit
   - slot_was_set:
     - circuit: "Silverstone"
   - slot_was_set:
-    - is_interested_in_driver: False
+    - requested_slot: driver_or_ranking
+  - slot_was_set:
+    - driver_or_ranking: "/ranking"
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
   - action: utter_submit
   - action: action_search_race_result
 
-- story: Explain race form (with driver)
+- story: Ask race results (driver path)
   steps:
   - intent: request_race_results
   - action: race_result_form
   - active_loop: race_result_form
   - slot_was_set:
-    - year: "2019"
+    - requested_slot: year
   - slot_was_set:
-    - circuit: "Silverstone"
+    - year: "2021"
   - slot_was_set:
-    - is_interested_in_driver: True
+    - requested_slot: circuit
   - slot_was_set:
-    - driver: "Hamilton"
+    - circuit: "Monaco"
+  - slot_was_set:
+    - requested_slot: driver_or_ranking
+  - slot_was_set:
+    - driver_or_ranking: "/driver"
+  - slot_was_set:
+    - requested_slot: driver
+  - slot_was_set:
+    - driver: "Sergio Perez"
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
@@ -98,3 +113,30 @@ stories:
   - active_loop: null
   - action: utter_submit
   - action: action_search_drivers_by_constructor
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_info
+  - action: utter_give_info
+  - intent: request_race_results
+  - action: race_result_form
+  - active_loop: race_result_form
+  - slot_was_set:
+    - requested_slot: year
+  - slot_was_set:
+    - year: '2020'
+  - slot_was_set:
+    - requested_slot: circuit
+  - slot_was_set:
+    - circuit: Emilia Romagna Grand Prix
+  - slot_was_set:
+    - requested_slot: driver_or_ranking
+  - slot_was_set:
+    - driver_or_ranking: /ranking
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: action_search_race_result

@@ -4,10 +4,12 @@
 # See this guide on how to implement these action:
 # https://rasa.com/docs/rasa/custom-actions
 
+from logging import addLevelName
 import requests
 import datetime
+import random
 
-from utils import searchConstructor, searchDriver, searchDriverDescription
+from utils import searchConstructor, searchDriver, searchDriverDescription, searchGrandPrix
 
 from typing import Any, Text, Dict, List, Optional
 
@@ -15,7 +17,29 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.forms import FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
-from rasa_sdk.events import Form, SlotSet
+from rasa_sdk.events import AllSlotsReset, Form, SlotSet
+
+with open('data/F1jokes.txt', 'r') as f:
+    jokes = f.read().splitlines()
+
+class ActionResetAllSlots(Action):
+    def name(self) -> Text:
+        return "action_reset_all_slots"
+    
+    def run(self, dispatcher: "CollectingDispatcher", tracker: Tracker, domain: "DomainDict") -> List[Dict[Text, Any]]:
+        return [AllSlotsReset()]
+
+class ActionReplyWithJoke(Action):
+    def name(self) -> Text:
+        return 'action_reply_with_joke'
+
+    def run(self, dispatcher: "CollectingDispatcher", tracker: Tracker, domain: "DomainDict") -> List[Dict[Text, Any]]:
+        
+        jokeNumber = random.randint(0, len(jokes) - 1)
+        reply = jokes[jokeNumber]
+        dispatcher.utter_message(reply)
+        
+        return []
 
 class ActionSearchDriverByConstructor(Action):
     def name(self) -> Text:
@@ -23,9 +47,11 @@ class ActionSearchDriverByConstructor(Action):
     
     async def run(self, dispatcher: "CollectingDispatcher", tracker: Tracker, domain: "DomainDict") -> List[Dict[Text, Any]]:
 
+        print('Executing action_search_drivers_by_constructor')
+
         constructor = tracker.get_slot('constructor')
 
-        print(constructor)
+        print('Constructor: ' + constructor)
 
         year_slot = tracker.get_slot('year')
 
@@ -33,8 +59,10 @@ class ActionSearchDriverByConstructor(Action):
             year = 'current'
             when = 'are'
         else:
-            year = int(year_slot)
+            year = year_slot
             when = 'were'
+
+        print('Year: ' + year)
 
         url = f'http://ergast.com/api/f1/{year}/constructors.json'
         response = requests.get(url)
@@ -47,7 +75,7 @@ class ActionSearchDriverByConstructor(Action):
         print(best_match)
         print(confidence)
 
-        if confidence >= 0.8:
+        if confidence >= 0.5:
             url = f'http://ergast.com/api/f1/constructors/{best_match}.json'
             response = requests.get(url)
             jsonResponse = response.json()
@@ -96,20 +124,24 @@ class ValidateRaceResultForm(FormValidationAction):
         tracker: "Tracker", 
         domain: "DomainDict"
     ) -> Optional[List[Text]]:
-        if tracker.get_slot("circuit") != "None":
-            return ["is_interested_in_driver"] + slots_mapped_in_domain
-        if tracker.get_slot("is_interested_in_driver") is True:
-            return ["driver"] + slots_mapped_in_domain
+        outcome = tracker.get_slot("driver_or_ranking")
+        driver = tracker.get_slot("driver")
+        if (outcome == "/driver") and (driver is None):
+            print('Sono dentro a IF driver')
+            return ['driver'] + slots_mapped_in_domain
         return slots_mapped_in_domain
 
-    async def extract_is_interested_in_driver(
+    async def extract_driver_or_ranking(
         self,
         dispatcher: "CollectingDispatcher",
         tracker: "Tracker",
         domain: "DomainDict"
-    ) -> Dict[Text, Any]:
+    ) -> Dict[Text, Any]:    
         intent = tracker.get_intent_of_latest_message()
-        return {"is_interested_in_driver": intent == "affirm"}
+        if intent == '/driver':
+            return {'driver_or_ranking': 'driver'}
+        elif intent == '/ranking':
+            return {'driver_or_ranking': 'ranking'}
 
     def validate_year(
         self,
@@ -129,6 +161,7 @@ class ValidateRaceResultForm(FormValidationAction):
 
         if 1950 <= year <= current_year:
             # validation succeeded, set the value of the "year" slot to value
+            print('Year: ' + str(year))
             return {"year": slot_value}
         else:
             # validation failed, set this slot to None so that the
@@ -150,6 +183,7 @@ class ValidateRaceResultForm(FormValidationAction):
             dispatcher.utter_message(text=f"That's a very short circuit name. I'm assuming you mis-spelled.")
             return {"circuit": None}
         else:
+            print('Circuit: ' + slot_value)
             return {"circuit": slot_value}
     
     def validate_driver(
@@ -166,19 +200,122 @@ class ValidateRaceResultForm(FormValidationAction):
             dispatcher.utter_message(text=f"That's a very short driver name. I'm assuming you mis-spelled.")
             return {"driver": None}
         else:
+            print('Driver: ' + slot_value)
             return {"driver": slot_value}
 
-class ActionSearchRaceResult(Action):
+class SearchRaceResult(Action):
     def name(self) -> Text:
         return 'action_search_race_result'
-
-    async def run(self, dispatcher: CollectingDispatcher,
+    
+    async def run(self, dispatcher: "CollectingDispatcher", 
             tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-        dispatcher.utter_message('Form triggered')
+            domain: "DomainDict") -> List[Dict[Text, Any]]:
 
-        return []
+        year = tracker.get_slot('year')
+        circuit = tracker.get_slot('circuit')
+        outcome = tracker.get_slot('driver_or_ranking')
+        driver = tracker.get_slot('driver')
+
+        # get all the races from the year
+        url = f'http://ergast.com/api/f1/{year}.json'
+        response = requests.get(url)
+        jsonResponse = response.json()
+
+        race_schedule = jsonResponse['MRData']['RaceTable']['Races']
+
+        best_match, confidence, race_info = searchGrandPrix(circuit, race_schedule)
+
+        print(best_match)
+        print(confidence)
+        print(race_info)
+
+        if confidence < 0.6:
+            print('Race not found for given year')
+            # to be changed in dispatcher.utter_message('text')
+            dispatcher.utter_message(f'I was not able to find the specified race during the {year} F1 season. May I suggest to try again?')
+            # add reset slots
+            return [SlotSet('year', None), SlotSet('circuit', None), SlotSet('driver_or_ranking', None), SlotSet('driver', None)]
+        else:
+            print('Race found for the given year')
+
+            url = f'http://ergast.com/api/f1/{year}/{best_match}/results.json'
+            response = requests.get(url)
+            jsonResponse = response.json()
+
+            race = jsonResponse['MRData']['RaceTable']['Races'][0]
+
+            raceName = race['raceName']
+
+            standings = race['Results']
+
+            if outcome == '/ranking':
+                print('Ranking request')
+
+                podium = []
+
+                for i in range(0, 3):
+                    tmp_driver = []
+                    fullName = standings[i]['Driver']['givenName'] + ' ' + standings[i]['Driver']['familyName']
+                    tmp_driver.append(fullName)
+                    team = standings[i]['Constructor']['name']
+                    tmp_driver.append(team)
+                    podium.append(tmp_driver)
+
+                # example message
+                # {Sergio Perez}, driving for {RedBull}, won the {2021} {Arzebaijan Gran Prix}.
+                # In second and third place came {Sebastian Vettel}, {Aston Martin}, and {Pierre Gasly}, {Alpha Tauri}.
+
+                reply = """{}, driving for {}, won the {} {}.\nIn second and third place came {}, {}, and {}, {}.""".format((podium[0])[0], podium[0][1],
+                    year, raceName, podium[1][0], podium[1][1], podium[2][0], podium[2][1])
+
+                dispatcher.utter_message(reply)
+
+                return [SlotSet('year', year), SlotSet('circuit', raceName), SlotSet('driver_or_ranking', outcome), SlotSet('driver', None)]
+
+            if outcome == '/driver':
+                print('Driver request')
+
+                url = f'http://ergast.com/api/f1/{year}/drivers.json'
+                response = requests.get(url)
+                jsonResponse = response.json()
+
+                driversList = jsonResponse['MRData']['DriverTable']['Drivers']
+
+                driverID, driverConfidence = searchDriver(driver, driversList)
+
+                print(driverID)
+                print(driverConfidence)
+
+                if driverConfidence < 0.4:
+                    print('Driver not found for given race')
+                    # to be changed in dispatcher.utter_message('text')
+                    dispatcher.utter_message(f'I was not able to find the driver you specified racing during the {year} {race_info[0]}. May I suggest to try again?')
+                    # add reset slots
+                    return [SlotSet('year', None), SlotSet('circuit', None), SlotSet('driver_or_ranking', None), SlotSet('driver', None)]
+                else:
+                    print('Driver found')
+
+                    url = f'http://ergast.com/api/f1/{year}/{best_match}/drivers/{driverID}/results.json'
+                    response = requests.get(url)
+                    jsonResponse = response.json()
+
+                    jsonDriver = jsonResponse['MRData']['RaceTable']['Races'][0]['Results'][0]
+
+                    driver_name = jsonDriver['Driver']['givenName'] + ' ' + jsonDriver['Driver']['familyName']
+                    team = jsonDriver['Constructor']['name']
+                    position = jsonDriver['position']
+                    grid = jsonDriver['grid']
+                    status = jsonDriver['status']
+
+                    # example message
+                    # {Ferrari} driver {Charles Leclerc} finished in {4}th place the {2021} {Arzebaijan Gran Prix}, after starting from the {pole} position.
+                    # {Astron Martin} driver {Lance Stroll} didn't finish the {2021} {Arzebaijan Gran Prix}, after starting from the {19}th position, due to an {accident}.
+
+                    reply = """{} driver {} finished in position {} the {} {}, after starting from position {}.""".format(team, driver_name, position, year, raceName, grid)
+
+                    dispatcher.utter_message(reply)
+
+                    return [SlotSet('year', year), SlotSet('circuit', raceName), SlotSet('driver_or_ranking', outcome), SlotSet('driver', driverID)]
 
 class ActionSearchWinnerByYear(Action):
     def name(self) -> Text:
@@ -225,7 +362,7 @@ class ActionSearchDriver(Action):
 
         parsedResponse = jsonResponse['MRData']['DriverTable']['Drivers']
 
-        best_match = searchDriver(driver, parsedResponse)
+        best_match, confidence = searchDriver(driver, parsedResponse)
 
         url = f'http://ergast.com/api/f1/drivers/{best_match}.json'
         response = requests.get(url)

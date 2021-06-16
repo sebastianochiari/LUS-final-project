@@ -16,11 +16,21 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Apologize for error and reset the slots
+- rule: Sorry if user not happy and reset slots
   steps:
   - intent: deny
   - action: utter_default
-  - action: action_clear_slots
+  - action: action_reset_all_slots
+
+- rule: Request for information
+  steps:
+  - intent: request_info
+  - action: utter_give_info
+
+- rule: Tell an F1 joke
+  steps:
+  - intent: request_joke
+  - action: action_reply_with_joke
 
 - rule: Activate race results form
   steps:
@@ -28,7 +38,7 @@ rules:
   - action: race_result_form
   - active_loop: race_result_form
 
-- rule: Submit race results form form
+- rule: Submit race results form
   condition:
   - active_loop: race_result_form
   steps:

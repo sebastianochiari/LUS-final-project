@@ -16,7 +16,7 @@ def searchDriver(driverToBeFound, driversList):
             confidence = temp_confidence
             best_match = id
 
-    return best_match
+    return best_match, confidence
 
 def searchConstructor(constructorToBeFound, constructorList):
     
@@ -32,6 +32,30 @@ def searchConstructor(constructorToBeFound, constructorList):
             best_match = id
 
     return best_match, confidence
+
+def searchGrandPrix(circuitToBeFound, raceSchedule):
+
+    best_match = 0
+    confidence = 0
+
+    race_names = []
+
+    for entry in raceSchedule:
+        tmp = []
+        tmp.append(entry['raceName'])
+        tmp.append(entry['Circuit']['circuitName'])
+        tmp.append(entry['Circuit']['Location']['locality'])
+        tmp.append(entry['Circuit']['Location']['country'])
+        race_names.append(tmp)
+
+    for i in range(0, len(race_names)):
+        for entry in race_names[i]:
+            temp_confidence = SequenceMatcher(a=entry,b=circuitToBeFound).ratio()
+            if temp_confidence > confidence:
+                confidence = temp_confidence
+                best_match = i + 1
+
+    return best_match, confidence, race_names[best_match-1]
 
 
 def searchDriverDescription(id, type = 1):
