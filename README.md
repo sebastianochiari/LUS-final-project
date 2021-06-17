@@ -24,7 +24,7 @@ pip3 install rasa-x --extra-index-url https://pypi.rasa.com/simple
 rasa train
 ```
 > This will store a zipped model file in the `models/` folder and set the latest trained model as active.
-- To chat with the bot, you need to start two servers on two different terminals
+- To chat with the bot on your local machine, you need to start two servers on two different terminals
 ```
 rasa shell
 rasa run actions
@@ -45,3 +45,5 @@ The following list contains all the possible questions the bot is able to intend
 > `2014 Ferrari drivers`
 - search a race result (two options, *ranking* returns the podium of the race, *driver* returns its race outcome)
 > `I want to know the race results for the British Grand Prix in 2008`
+- search the next race in calendar
+> `when will be the next race?`

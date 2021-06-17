@@ -52,6 +52,7 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - bye bye friend
 - intent: affirm
   examples: |
     - yeah
@@ -110,6 +111,7 @@ nlu:
     - uh okay thank you good bye
     - thank you bye
     - um okay thank you good bye
+    - thanks, bye
 - intent: stop
   examples: |
     - ok then you cant help me
@@ -163,7 +165,7 @@ nlu:
     - who won the [2002](year) championship?
     - who won in [2001](year)?
     - who is the Formula1 season winner?
-    - who won the F1 season?
+    - who won the [last](year) F1 season?
     - who was the season winner in [2016](year)?
     - who was the winner in [1994](year)?
     - tell me the [2016](year) F1 winner?
@@ -176,6 +178,10 @@ nlu:
     - [1983](year) winner thanks
     - [1965](year) championship winner
     - looking for the [1975](year) winner
+    - cool, who was the [last](year) season winner?
+    - [last](year) season winner?
+    - can you tell me [last](year) season winner?
+    - what about the [2019](year) season?
 - intent: search_driver
   examples: |
     - Tell me about [Charles Leclerc](driver)
@@ -194,6 +200,8 @@ nlu:
     - Ever heard of [Niki Lauda](driver)?
     - I'm looking for [Vettel](driver)
     - Looking for [Verstappen](driver)
+    - what can you tell about the driver?
+    - tell me more about the driver
 - intent: inform
   examples: |
     - oh sorry, in [2016](year)
@@ -210,13 +218,14 @@ nlu:
     - Searching for a race standing
     - Looking for grand prix results
     - Give me the grand prix standings
+    - [Silverstone](circuit) race results
     - [Italian](circuit) Grand prix results
     - Looking for race results
     - What was the result of the [Austrian](circuit) Grand Prix
     - [Singapore](circuit) [2020](year) results
     - great, I'm looking for a race result
     - [Emilia Romagna](circuit) Grand Prix
-    - I want to know the race results of the [British](circuit) Grand Prix in [2008](year)  
+    - I want to know the race results of the [British](circuit) Grand Prix in [2008](year)
 - intent: request_drivers_by_constructor
   examples: |
     - Who drives for [Ferrari](constructor)?
@@ -233,3 +242,137 @@ nlu:
     - who drove for [Sauber](constructor) in [2015](year)?
     - I want the [Force India](constructor) drivers for the [2018](year) season?
     - [2014](year) [Renault](constructor) drivers
+- intent: search_next_race
+  examples: |
+    - When it's going to be the next race?
+    - Tell me the next race
+    - When the next race?
+    - Next race
+    - Where the next race will take place?
+    - When next race?
+    - Next race date
+    - Next race circuit
+    - Next race country
+    - When nearest race?
+    - When the near race will be?
+    - When is coming the nearest race?
+    - Upcoming race
+    - Near race
+    - When will the next race be?
+    - When will the near race be?
+    - When will the nearest race be?
+    - When will the coming race be?
+    - When will the upcoming race be?
+    - Where will the next race be?
+    - Where will the near race be?
+    - Where will the nearest race be?
+    - Where will the coming race be?
+    - Where will the upcoming race be?
+    - yes, when will be the next race?
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+
+- lookup: circuit
+  examples: |
+    - Bahrain
+    - Emilia Romagna
+    - Algarve
+    - Portugal
+    - Barcelona
+    - Catalunya
+    - Monaco
+    - Spain
+    - Italy
+    - French
+    - Baku
+    - Arzebaijan
+    - Spielberg
+    - Austrian
+    - British
+    - Silverstone
+    - Hungarian
+    - Spa
+    - Belgium
+    - Dutch
+    - Sochi
+    - Russian
+    - Singapore
+    - Marina Bay
+    - Malaysia
+    - Japan
+    - Suzuka
+    - Austin
+    - USA
+    - America
+    - Mexico
+    - Brasil
+    - Brasilian
+    - Saudi Arabia
+    - Abu Dhabi
+    - Yas Marina
+    - Australian
+    - Melbourne
+
+- lookup: constructor
+  examples: |
+    - alfa romeo
+    - alphatauri
+    - alpine
+    - renault
+    - aston martin
+    - ferrari
+    - haas
+    - mclaren
+    - mercedes
+    - red bull
+    - williams
+    - sauber
+    - force india
+    - racing point
+    - toro rosso
+    - lotus
+    - HRT
+    - Toyota
+    - BMW Sauber
+    - Brawn
+
+- lookup: driver
+  examples: |
+    - fernando alonso
+    - valtteri bottas
+    - pierre gasly
+    - antonio giovinazzi
+    - lewis hamilton
+    - nicholas latifi
+    - charles leclerc
+    - nikita mazepin
+    - lando norris
+    - esteban ocon
+    - sergio perez
+    - kimi raikkonen
+    - daniel ricciardo
+    - george russell
+    - carlos sainz
+    - mick schumacher
+    - michael schumacher
+    - lance stroll
+    - yuki tsunoda
+    - max verstappen
+    - sebastian vettel
+    - jack aitken
+    - alexander albon
+    - pietro fittipaldi
+    - romain grosjean
+    - nico hulkenberg
+    - danil kvyat
+    - kevin magnussen
+    - robert kubica
+    - marcus ericsson
+    - brendon hartley
+    - sergey sirotkin
+    - stoffel vandoorne
+    - jenson button
+    - felipe massa

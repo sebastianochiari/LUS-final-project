@@ -3,20 +3,21 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- search_driver
+- goodbye
+- search_season_winner
+- thankyou
+- greet
+- affirm
+- search_next_race
+- request_info
 - inform
 - ranking
-- greet
-- request_info
 - request_joke
 - request_race_results
-- goodbye
-- affirm
 - deny
 - stop
-- thankyou
 - driver
-- search_season_winner
-- search_driver
 - request_drivers_by_constructor
 entities:
 - circuit
@@ -38,8 +39,8 @@ slots:
     type: text
     influence_conversation: true
   driver_or_ranking:
-    type: unfeaturized
-    influence_conversation: false
+    type: text
+    influence_conversation: true
   requested_slot:
     type: unfeaturized
     influence_conversation: false
@@ -59,14 +60,19 @@ responses:
   utter_noworries:
   - text: You are welcome :)
   - text: Happy to be helpful.
-  - text: I'm glad you found me usefull.
+  - text: I'm glad you found me useful.
+  - text: Cheers ;) Let me know if you want to search something else.
   utter_submit:
   - text: Looking into it.
   - text: Here it comes.
   - text: Processing.
+  utter_sorry:
+  - text: I'm really sorry. Let's try again
+  - text: That's my fault. Can you try again?
   utter_default:
-  - text: Sorry, I didn't understand you, please try input something else.
-  - text: I'm sorry. Let's try again.
+  - text: Sorry, I didn't understand you. Please try input something else.
+  - text: I'm sorry but I didn't quite understand that. Could you rephrase?
+  - text: Sorry I didn't get that. Can you rephrase?
   utter_give_info:
   - text: |-
       My name is Jarvis and I'm a Formula1 info bot.
@@ -74,6 +80,8 @@ responses:
       - who won a championship in a given year
       - information about a driver
       - which are the constructor's drivers
+      - race results (podium or driver's race outcome)
+      - next race in calendar
   utter_ask_year:
   - text: In which year?
   utter_ask_circuit:
@@ -101,10 +109,11 @@ responses:
   - text: Need for a scuderia name.
   - text: Which team are you interested in?
 actions:
-- action_reset_all_slots
 - action_reply_with_joke
+- action_reset_all_slots
 - action_search_driver
 - action_search_drivers_by_constructor
+- action_search_next_race
 - action_search_race_result
 - action_search_winner_by_year
 - utter_ask_circuit
@@ -118,6 +127,7 @@ actions:
 - utter_greet
 - utter_noworries
 - utter_rejoice
+- utter_sorry
 - utter_submit
 - validate_drivers_by_constructor_form
 - validate_race_result_form

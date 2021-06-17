@@ -6,8 +6,8 @@
 
 from logging import addLevelName
 import requests
-import datetime
 import random
+from datetime import date, datetime
 
 from utils import searchConstructor, searchDriver, searchDriverDescription, searchGrandPrix
 
@@ -37,6 +37,61 @@ class ActionReplyWithJoke(Action):
         
         jokeNumber = random.randint(0, len(jokes) - 1)
         reply = jokes[jokeNumber]
+        dispatcher.utter_message(reply)
+        
+        return []
+
+class ActionSearchNextRace(Action):
+    def name(self) -> Text:
+        return 'action_search_next_race'
+    
+    async def run(self, dispatcher: "CollectingDispatcher", tracker: Tracker, domain: "DomainDict") -> List[Dict[Text, Any]]:
+        print('Executing action_search_next_race')
+
+        # get current date
+        today = date.today()
+        today = str(today)
+
+        # format of date/time strings; assuming yyyy/mm/dd
+        date_format = "%Y-%m-%d"
+
+        today = datetime.strptime(today, date_format)
+
+        # get the list of races in the current year
+        url = 'http://ergast.com/api/f1/current.json'
+        response = requests.get(url)
+        jsonResponse = response.json()
+
+        parsedResponse = jsonResponse['MRData']['RaceTable']['Races']
+
+        round = 0
+
+        for race in parsedResponse:
+            race_date = race['date']
+            race_date = datetime.strptime(race_date, date_format)
+            print('RACE DATE')
+            print(race_date)
+            print(type(race_date))
+            
+            if (race_date >= today):
+                round = int(race['round'])
+                break
+                
+        if round == 0:
+            reply = 'There are no more races scheduled for this F1 season'
+        else:
+            race = parsedResponse[round - 1]
+            raceName = race['raceName']
+            raceDate = race['date']
+            raceDate = datetime.strptime(raceDate, date_format)
+            raceDate = raceDate.strftime("%B %d, %Y")
+            circuitName = race['Circuit']['circuitName']
+            raceCity = race['Circuit']['Location']['locality']
+            raceCountry = race['Circuit']['Location']['country']
+            # example reply
+            # The next race will be the Portuguese Grand Prix, held on May 2, 2021 at the Autódromo Internacional do Algarve in Portimão, Portugal.
+            reply = """The next race will be the {}, held on {} at the {} in {} ({})""".format(raceName, raceDate, circuitName, raceCity, raceCountry)
+
         dispatcher.utter_message(reply)
         
         return []
@@ -124,10 +179,14 @@ class ValidateRaceResultForm(FormValidationAction):
         tracker: "Tracker", 
         domain: "DomainDict"
     ) -> Optional[List[Text]]:
-        outcome = tracker.get_slot("driver_or_ranking")
-        driver = tracker.get_slot("driver")
+        outcome = tracker.get_slot('driver_or_ranking')
+        driver = tracker.get_slot('driver')
+        if (outcome is None) and (driver is not None):
+            print('Se trovo che users ha comunicato driver slot automaticamente setto anche il driver_or_ranking slot')
+            # MA QUESTA COSA NON FUNZIONA E NON RIESCO A CAPIRE PERCHE
+            SlotSet('driver_or_ranking', '/driver')
         if (outcome == "/driver") and (driver is None):
-            print('Sono dentro a IF driver')
+            print('Aggiungo driver slot')
             return ['driver'] + slots_mapped_in_domain
         return slots_mapped_in_domain
 
@@ -136,7 +195,7 @@ class ValidateRaceResultForm(FormValidationAction):
         dispatcher: "CollectingDispatcher",
         tracker: "Tracker",
         domain: "DomainDict"
-    ) -> Dict[Text, Any]:    
+    ) -> Dict[Text, Any]:
         intent = tracker.get_intent_of_latest_message()
         if intent == '/driver':
             return {'driver_or_ranking': 'driver'}
@@ -156,7 +215,7 @@ class ValidateRaceResultForm(FormValidationAction):
         # log print
         print(f'Year given: {year}')
         # retrieve current year
-        currentDateTime = datetime.datetime.now()
+        currentDateTime = datetime.now()
         current_year = int((currentDateTime.date()).strftime("%Y"))
 
         if 1950 <= year <= current_year:
@@ -326,6 +385,13 @@ class ActionSearchWinnerByYear(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         year = tracker.get_slot('year')
+
+        if year == 'last':
+            currentDateTime = datetime.now()
+            current_year = int((currentDateTime.date()).strftime("%Y"))
+            current_year = current_year - 1
+            year = str(current_year)
+
         url = f'http://ergast.com/api/f1/{year}/driverStandings.json'
         response = requests.get(url)
         jsonResponse = response.json()
@@ -342,7 +408,7 @@ class ActionSearchWinnerByYear(Action):
 
         dispatcher.utter_message(reply)
 
-        return [SlotSet('year', year)]
+        return [SlotSet('year', year), SlotSet('driver', driver)]
 
 class ActionSearchDriver(Action):
     def name(self) -> Text:

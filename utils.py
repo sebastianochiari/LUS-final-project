@@ -12,6 +12,9 @@ def searchDriver(driverToBeFound, driversList):
         id = driversList[i]['driverId']
         full_name = driversList[i]['givenName'] + ' ' + driversList[i]['familyName']
         temp_confidence = SequenceMatcher(a=full_name,b=driverToBeFound).ratio()
+        if temp_confidence < 0.7:
+            surname = driversList[i]['familyName']
+            temp_confidence = SequenceMatcher(a=surname, b=driverToBeFound).ratio()
         if temp_confidence > confidence:
             confidence = temp_confidence
             best_match = id
