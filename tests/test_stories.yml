@@ -2,90 +2,314 @@
 #### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
 
 stories:
-- story: happy path 1
+- story: greet
   steps:
-  - user: |
-      hello there!
-    intent: greet
+  - intent: greet
+    user: |-
+      Hi
   - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
 
-- story: happy path 2
+- story: goodbye
   steps:
-  - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
-  - user: |
-      bye-bye!
-    intent: goodbye
+  - intent: goodbye
+    user: |-
+      bye
   - action: utter_goodbye
 
-- story: sad path 1
+- story: basic conversation
   steps:
-  - user: |
-      hello
-    intent: greet
+  - intent: greet
+    user: |-
+      Hi there
   - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      yes
-    intent: affirm
-  - action: utter_happy
+  - intent: request_info
+    user: |-
+      What can you do?
+  - action: utter_give_info
+  - intent: search_next_race
+    user: |-
+      Cool, so .. when is the next race?
+  - action: action_search_next_race
+  - intent: thankyou
+    user: |-
+      thanks friend
+  - action: utter_noworries
 
-- story: sad path 2
+- story: search race result form - ranking (all info provided after)
   steps:
-  - user: |
-      hello
-    intent: greet
+  - intent: greet
+    user: |-
+      hello my friend
   - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      not really
-    intent: deny
+  - intent: request_race_results
+    user: |-
+      looking for a race result
+  - action: race_result_form
+  - active_loop: race_result_form
+  - slot_was_set:
+    - requested_slot: year
+  - intent: inform
+    user: |-
+      [2019](year)
+  - slot_was_set:
+    - year: '2019'
+  - action: race_result_form
+  - slot_was_set:
+    - year: '2019'
+  - slot_was_set:
+    - requested_slot: circuit
+  - intent: request_race_results
+    user: |-
+      [British](circuit) Grand Prix
+  - slot_was_set:
+    - circuit: British
+  - action: race_result_form
+  - slot_was_set:
+    - circuit: British Grand Prix
+  - slot_was_set:
+    - requested_slot: driver_or_ranking
+  - intent: ranking
+    user: |-
+      /ranking
+  - action: race_result_form
+  - slot_was_set:
+    - driver_or_ranking: /ranking
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: action_search_race_result
+  - slot_was_set:
+    - year: '2019'
+  - slot_was_set:
+    - circuit: British Grand Prix
+  - slot_was_set:
+    - driver_or_ranking: /ranking
+  - slot_was_set:
+    - driver: null
+  - intent: thankyou
+    user: |-
+      Thanks
+  - action: utter_noworries
+  - intent: goodbye
+    user: |-
+      no that's fine, bye bye
   - action: utter_goodbye
 
-- story: sad path 3
+- story: search race result form - driver (year provided in the request)
   steps:
-  - user: |
-      hi
-    intent: greet
+  - intent: greet
+    user: |-
+      hello hello
   - action: utter_greet
-  - user: |
-      very terrible
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      no
-    intent: deny
+  - intent: request_race_results
+    user: |-
+      I'm looking for a [2006](year) race result
+  - slot_was_set:
+    - year: '2006'
+  - action: race_result_form
+  - active_loop: race_result_form
+  - slot_was_set:
+    - year: '2006'
+  - slot_was_set:
+    - requested_slot: circuit
+  - intent: request_race_results
+    user: |-
+      [Italian](circuit) Gran Prix
+  - slot_was_set:
+    - circuit: Italian
+  - action: race_result_form
+  - slot_was_set:
+    - circuit: Italian Gran Prix
+  - slot_was_set:
+    - requested_slot: driver_or_ranking
+  - intent: driver
+    user: |-
+      /driver
+  - action: race_result_form
+  - slot_was_set:
+    - driver_or_ranking: /driver
+  - slot_was_set:
+    - requested_slot: driver
+  - intent: search_driver
+    user: |-
+      [Micheel Schumacher](driver)
+  - slot_was_set:
+    - driver: Michael Schumacher
+  - action: race_result_form
+  - slot_was_set:
+    - driver: Michael Schumacher
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: action_search_race_result
+  - slot_was_set:
+    - year: '2006'
+  - slot_was_set:
+    - circuit: Italian Grand Prix
+  - slot_was_set:
+    - driver_or_ranking: /driver
+  - slot_was_set:
+    - driver: michael_schumacher
+  - intent: thankyou
+    user: |-
+      Thanks a lot, you're amazing
+  - action: utter_noworries
+
+- story: search race result form - ranking (year and circuit provided in the request)
+  steps:
+  - intent: greet
+    user: |-
+      hola
+  - action: utter_greet
+  - intent: request_race_results
+    user: |-
+      looking for the [2020](year) [Italian](circuit) Grand Prix race result
+  - slot_was_set:
+    - year: '2020'
+  - slot_was_set:
+    - circuit: Italian
+  - action: race_result_form
+  - active_loop: race_result_form
+  - slot_was_set:
+    - circuit: Italian
+  - slot_was_set:
+    - year: '2020'
+  - slot_was_set:
+    - requested_slot: driver_or_ranking
+  - intent: ranking
+    user: |-
+      /ranking
+  - action: race_result_form
+  - slot_was_set:
+    - driver_or_ranking: /ranking
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: action_search_race_result
+  - slot_was_set:
+    - year: '2020'
+  - slot_was_set:
+    - circuit: Italian Grand Prix
+  - slot_was_set:
+    - driver_or_ranking: /ranking
+  - slot_was_set:
+    - driver: null
+  - intent: affirm
+    user: |-
+      great
+  - action: utter_noworries
+
+- story: Request season winner and information about the driver
+  steps:
+  - intent: greet
+    user: |-
+      hello my friend
+  - action: utter_greet
+  - intent: search_season_winner
+    user: |-
+      who won the [2014](year) F1 champship?
+  - slot_was_set:
+    - year: '2014'
+  - action: action_search_winner_by_year
+  - slot_was_set:
+    - year: '2014'
+  - slot_was_set:
+    - driver: Lewis Hamilton
+  - intent: search_driver
+    user: |-
+      can I have more info about the driver?
+  - action: action_search_driver
+  - slot_was_set:
+    - driver: hamilton
+  - intent: goodbye
+    user: |-
+      thanks, goodbye
   - action: utter_goodbye
 
-- story: say goodbye
+- story: Request drivers for constructor and info about one driver
   steps:
-  - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
+  - intent: greet
+    user: |-
+      hello hello hello
+  - action: utter_greet
+  - intent: request_drivers_by_constructor
+    user: |-
+      who drives for [McLaren](constructor)?
+  - slot_was_set:
+    - constructor: McLaren
+  - action: drivers_by_constructor_form
+  - action: utter_submit
+  - action: action_search_drivers_by_constructor
+  - slot_was_set:
+    - constructor: mclaren
+  - intent: search_driver
+    user: |-
+      great, can I have some info about [Daniel Ricciardo](driver)?
+  - slot_was_set:
+    - driver: Daniel Ricciardo
+  - action: action_search_driver
+  - slot_was_set:
+    - driver: ricciardo
 
-- story: bot challenge
+- story: Ask next race and same race result of another year
   steps:
-  - user: |
-      are you a bot?
-    intent: bot_challenge
-  - action: utter_iamabot
+  - intent: greet
+    user: |-
+      goodmorning
+  - action: utter_greet
+  - intent: search_next_race
+    user: |-
+      when will be the next race?
+  - action: action_search_next_race
+  - slot_was_set:
+    - circuit: French Grand Prix
+  - intent: request_race_results
+    user: |-
+      can you tell me the race results of the [2018](year) race?
+  - slot_was_set:
+    - year: 2018
+  - action: race_result_form
+  - active_loop: race_result_form
+  - slot_was_set:
+    - circuit: French Grand Prix
+  - slot_was_set:
+    - year: 2018
+  - slot_was_set:
+    - requested_slot: driver_or_ranking
+  - intent: ranking
+    user: |-
+      /ranking
+  - action: race_result_form
+  - slot_was_set:
+    - driver_or_ranking: /ranking
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: action_search_race_result
+  - slot_was_set:
+    - year: 2018
+  - slot_was_set:
+    - circuit: French Grand Prix
+  - slot_was_set:
+    - driver_or_ranking: /ranking
+  - slot_was_set:
+    - driver: null
+
+- story: F1 joke
+  steps:
+  - intent: greet
+    user: |-
+      Hi mate
+  - action: utter_greet
+  - intent: request_joke
+    user: |-
+      Can you make me laugh with a joke?
+  - action: action_reply_with_joke
+  - intent: thankyou
+    user: |-
+      That was funny, thanks mate
+  - action: utter_noworries

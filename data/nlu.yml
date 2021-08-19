@@ -39,9 +39,9 @@ nlu:
     - hey bot!
     - hello friend
     - morning
+    - Hi there
 - intent: goodbye
   examples: |
-    - good afternoon
     - cu
     - good by
     - cee you later
@@ -52,7 +52,9 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - see you bye
     - bye bye friend
+    - thanks, bye
 - intent: affirm
   examples: |
     - yeah
@@ -156,6 +158,16 @@ nlu:
     - tell me a joke
     - I want to laugh
     - Tell an F1 joke please
+- intent: reset_slots
+  examples: |
+    - I want to do a new search
+    - Please can you reset the slots?
+    - Reset the slots
+    - I want to ask you something else
+    - New question
+    - Clean the slots
+    - Wipe out the slots
+    - New query coming
 - intent: search_season_winner
   examples: |
     - who was the winner in [1987](year)?
@@ -210,6 +222,9 @@ nlu:
     - for [2019](year)
     - for the [2018](year) season
     - [2020](year)
+    - [2021](year)
+    - [2019](year)
+    - [Silverstone](circuit)
 - intent: request_race_results
   examples: |
     - Give me the results of the race
@@ -226,6 +241,14 @@ nlu:
     - great, I'm looking for a race result
     - [Emilia Romagna](circuit) Grand Prix
     - I want to know the race results of the [British](circuit) Grand Prix in [2008](year)
+    - Looking for a race
+    - Looking for a race result
+    - I'm looking for a race result
+    - I want the results of a race
+    - I want the [2019](year) [Silversone](circuit)Grand Prix results
+    - give me a race result
+    - I want a race result
+    - can you tell me the race results of [last](year) year race?
 - intent: request_drivers_by_constructor
   examples: |
     - Who drives for [Ferrari](constructor)?
@@ -269,12 +292,6 @@ nlu:
     - Where will the coming race be?
     - Where will the upcoming race be?
     - yes, when will be the next race?
-- intent: out_of_scope
-  examples: |
-    - I want to order food
-    - What is 2 + 2?
-    - Who's the US President?
-
 - lookup: circuit
   examples: |
     - Bahrain
@@ -315,7 +332,6 @@ nlu:
     - Yas Marina
     - Australian
     - Melbourne
-
 - lookup: constructor
   examples: |
     - alfa romeo
@@ -338,7 +354,6 @@ nlu:
     - Toyota
     - BMW Sauber
     - Brawn
-
 - lookup: driver
   examples: |
     - fernando alonso

@@ -1,24 +1,46 @@
 version: '2.0'
+config:
+  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- search_driver
-- goodbye
-- search_season_winner
-- thankyou
-- greet
-- affirm
-- search_next_race
-- request_info
-- inform
-- ranking
-- request_joke
-- request_race_results
-- deny
-- stop
-- driver
-- request_drivers_by_constructor
+- search_driver:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- search_season_winner:
+    use_entities: true
+- thankyou:
+    use_entities: true
+- greet:
+    use_entities: true
+- affirm:
+    use_entities: true
+- search_next_race:
+    use_entities: true
+- request_info:
+    use_entities: true
+- inform:
+    use_entities: true
+- ranking:
+    use_entities: true
+- request_joke:
+    use_entities: true
+- request_race_results:
+    use_entities: true
+- reset_slots:
+    use_entities: true
+- deny:
+    use_entities: true
+- stop:
+    use_entities: true
+- driver:
+    use_entities: true
+- request_drivers_by_constructor:
+    use_entities: true
+- nlu_fallback:
+    use_entities: true
 entities:
 - circuit
 - constructor
@@ -27,22 +49,34 @@ entities:
 - year
 slots:
   year:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   driver:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   circuit:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   constructor:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   driver_or_ranking:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   requested_slot:
-    type: unfeaturized
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
 responses:
   utter_greet:
@@ -73,15 +107,20 @@ responses:
   - text: Sorry, I didn't understand you. Please try input something else.
   - text: I'm sorry but I didn't quite understand that. Could you rephrase?
   - text: Sorry I didn't get that. Can you rephrase?
+  utter_reset_slots:
+  - text: Done! Ready for a new query.
+  - text: Ready to begin a new search with fresh slots.
   utter_give_info:
   - text: |-
       My name is Jarvis and I'm a Formula1 info bot.
       You can ask me a variety of questions, like:
+      - ask for an F1 joke
       - who won a championship in a given year
       - information about a driver
-      - which are the constructor's drivers
+      - which are the constructor's drivers (current or given an year)
       - race results (podium or driver's race outcome)
       - next race in calendar
+      If you want to perform a new search, remember to ask me to reset the slots, otherwise there can be some issues.
   utter_ask_year:
   - text: In which year?
   utter_ask_circuit:
@@ -95,12 +134,12 @@ responses:
       Specify the circuit.
       (name of the circuit, name of the event or hosting country)
   utter_ask_driver_or_ranking:
-  - text: What are you interested in?
-    buttons:
-    - title: Ranking
-      payload: /ranking
-    - title: Driver
-      payload: /driver
+  - buttons:
+    - payload: /ranking
+      title: Ranking
+    - payload: /driver
+      title: Driver
+    text: What are you interested in?
   utter_ask_driver:
   - text: Specify the driver.
   - text: What's the driver's name?
@@ -134,13 +173,14 @@ actions:
 forms:
   race_result_form:
     required_slots:
-      year:
-      - type: from_text
       circuit:
       - type: from_text
       driver_or_ranking:
+      - type: from_text
+      year:
       - type: from_text
   drivers_by_constructor_form:
     required_slots:
       constructor:
       - type: from_text
+e2e_actions: []

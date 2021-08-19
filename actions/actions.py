@@ -94,7 +94,7 @@ class ActionSearchNextRace(Action):
 
         dispatcher.utter_message(reply)
         
-        return []
+        return [SlotSet('circuit', raceName)]
 
 class ActionSearchDriverByConstructor(Action):
     def name(self) -> Text:
@@ -211,7 +211,16 @@ class ValidateRaceResultForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate year value."""
 
-        year = int(slot_value)
+        year = slot_value
+
+        if year == 'last':
+            currentDateTime = datetime.now()
+            current_year = int((currentDateTime.date()).strftime("%Y"))
+            current_year = current_year - 1
+            year = current_year
+        else:
+            year = int(year)
+
         # log print
         print(f'Year given: {year}')
         # retrieve current year
@@ -274,6 +283,14 @@ class SearchRaceResult(Action):
         circuit = tracker.get_slot('circuit')
         outcome = tracker.get_slot('driver_or_ranking')
         driver = tracker.get_slot('driver')
+
+        if year == 'last':
+            currentDateTime = datetime.now()
+            current_year = int((currentDateTime.date()).strftime("%Y"))
+            current_year = current_year - 1
+            year = current_year
+        else:
+            year = int(year)
 
         # get all the races from the year
         url = f'http://ergast.com/api/f1/{year}.json'

@@ -27,6 +27,12 @@ rules:
   - intent: nlu_fallback
   - action: utter_default
 
+- rule: Reset slots
+  steps:
+  - intent: reset_slots
+  - action: action_reset_all_slots
+  - action: utter_reset_slots
+
 - rule: Request for information
   steps:
   - intent: request_info

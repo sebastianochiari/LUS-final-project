@@ -4,13 +4,13 @@ Final project for *Language Understanding Systems* course @ UNITN
 
 The detailed description of the whole dialog system can be found inside the `report.pdf`. 
 
-### ⚙️ Requirements
+## ⚙️ Requirements
 
 - `Python 3.6.*`, `3.7.*` or `3.8.*` (for this project `Python 3.7.10` has been used)
 - [`Rasa`](https://rasa.com/docs/rasa/installation)
 - [`Rasa X`](https://rasa.com/docs/rasa-x/)
 
-### 🔧 How to use
+## 🔧 How to use
 
 - Clone the repository [`https://github.com/sebastianochiari/LUS-final-project`](https://github.com/sebastianochiari/LUS-final-project)
 - Install all the dependencies listed above  
@@ -30,20 +30,20 @@ rasa shell
 rasa run actions
 ```
 
-### 🔊 Actions
+## 🔊 Actions
 
 The following list contains all the possible questions the bot is able to intend and respond:
-- ask for what the bot is able to do
+- ask **what the bot is able to do**
 > `what are you capable of?`
-- ask for an F1 joke (retrived from https://upjoke.com/f1-jokes)
+- ask for an **F1 joke** (retrived from https://upjoke.com/f1-jokes)
 > `make me laugh`
-- search the F1 championship winner given the year 
+- search the **F1 championship winner given the year**
 > `who won the 2020 F1 championship?`
-- search a driver given its name
+- search **driver info** given its name
 > `what can you tell me about Carlos Sainz?`
-- search the drivers by the constructor name and the year (*optional*, if nothing is specified it tries to look within the current year) (working with forms, maybe not necessary)  
+- search the **drivers by constructor name and the year** (*optional*, if nothing is specified it tries to look within the current year) (working with forms, maybe not necessary)  
 > `2014 Ferrari drivers`
-- search a race result (two options, *ranking* returns the podium of the race, *driver* returns its race outcome)
+- search a **race result** (two options, *ranking* returns the podium of the race, *driver* returns its race outcome)
 > `I want to know the race results for the British Grand Prix in 2008`
-- search the next race in calendar
+- search the **next race in calendar**
 > `when will be the next race?`
