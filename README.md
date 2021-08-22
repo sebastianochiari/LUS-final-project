@@ -8,27 +8,38 @@ The detailed description of the whole dialog system can be found inside the `rep
 
 - `Python 3.6.*`, `3.7.*` or `3.8.*` (for this project `Python 3.7.10` has been used)
 - [`Rasa`](https://rasa.com/docs/rasa/installation)
-- [`Rasa X`](https://rasa.com/docs/rasa-x/)
+- [`Rasa X`](https://rasa.com/docs/rasa-x/) (*optional*)
+- [`Duckling`](https://github.com/duckling-python-wrapper/fb_duckling)
 
 ## 🔧 How to use
 
 - Clone the repository [`https://github.com/sebastianochiari/LUS-final-project`](https://github.com/sebastianochiari/LUS-final-project)
-- Install all the dependencies listed above  
-```
-pip3 install -U pip 
-pip3 install rasa 
-pip3 install rasa-x --extra-index-url https://pypi.rasa.com/simple
-```
+- Install all the dependencies listed above
 - Train the model  
 ```
 rasa train
 ```
 > This will store a zipped model file in the `models/` folder and set the latest trained model as active.
-- To chat with the bot on your local machine, you need to start two servers on two different terminals
+
+### 💻 Local
+To **chat with the bot on your local machine**, start two servers on two different terminals, running the following two commands
 ```
 rasa shell
 rasa run actions
 ```
+
+### 🔮 Alexa
+To **chat with the bot using the ASK infrastructure**, do the following instructions:
+
+- create an Alexa Skill on [Amazon Developer](https://developer.amazon.com/it-IT/alexa/alexa-skills-kit)
+- replace the JSON file in the JSON Editor with the `alexa_schema.json` you can find in the repository
+- launch the following commands in three separate terminal shells
+```
+rasa run actions
+rasa run -m models --endpoints endpoint.yml
+ngrok http 5005
+```
+- update the endpoint on the Alexa Developer Console by selecting HTTPS, "*My development endpoint is a subdomain of a domain that has a wildcard certificate from a certificate authority*" as SSL certificate and copying the ngrok url concatenated with `webhooks/alexa_assistant/webhook`
 
 ## 🔊 Actions
 
