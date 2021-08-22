@@ -1,0 +1,98 @@
+[
+  {
+    "text": "no this does not work for me",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.30930088465856015
+    }
+  },
+  {
+    "text": "Reset the slots",
+    "intent": "reset_slots",
+    "intent_prediction": {
+      "name": "request_drivers_by_constructor",
+      "confidence": 0.20414629776203763
+    }
+  },
+  {
+    "text": "I want to ask you something else",
+    "intent": "reset_slots",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.27505901618520295
+    }
+  },
+  {
+    "text": "see you around",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "request_info",
+      "confidence": 0.2872535745919492
+    }
+  },
+  {
+    "text": "see you bye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.283672686679835
+    }
+  },
+  {
+    "text": "goodbye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.4156668480505762
+    }
+  },
+  {
+    "text": "I want to know who drives for Sauber",
+    "intent": "request_drivers_by_constructor",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.15138558371569466
+    }
+  },
+  {
+    "text": "i love that",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.23497726064773242
+    }
+  },
+  {
+    "text": "let's do it",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.37345958810709506
+    }
+  },
+  {
+    "text": "and you call yourself bot company? pff",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.19915965258971682
+    }
+  },
+  {
+    "text": "Searching for a race standing",
+    "intent": "request_race_results",
+    "intent_prediction": {
+      "name": "reset_slots",
+      "confidence": 0.29539386343907836
+    }
+  },
+  {
+    "text": "moin",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "search_driver",
+      "confidence": 0.2036956922871648
+    }
+  }
+]

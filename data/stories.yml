@@ -12,7 +12,25 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
-- story: Ask year
+- story: Ask information about what the bot can do + joke
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_info
+  - action: utter_give_info
+  - intent: request_joke
+  - action: action_reply_with_joke
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Ask winner by year
+  steps:
+  - intent: search_season_winner
+    entities:
+      - year: "2015" 
+  - action: action_search_winner_by_year
+
+- story: Ask year 1
   steps:
   - intent: search_season_winner
   - slot_was_set:
@@ -21,11 +39,15 @@ stories:
   - intent: inform
   - action: action_search_winner_by_year
 
-- story: Ask winner by year
+- story: Ask year 2
   steps:
   - intent: search_season_winner
     entities:
-      - year: "2021" 
+      - year: "2020" 
+  - action: action_search_winner_by_year
+  - intent: search_season_winner
+    entities:
+      - year: "2019"
   - action: action_search_winner_by_year
 
 - story: Ask correct driver
@@ -101,7 +123,7 @@ stories:
   - action: utter_submit
   - action: action_search_race_result
 
-- story: Explain drivers by constructor form
+- story: Retrieve drivers by constructor form
   steps:
   - intent: request_drivers_by_constructor
   - action: drivers_by_constructor_form
@@ -179,7 +201,7 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
-- story: interactive_story_1
+- story: interactive_story_3
   steps:
   - intent: greet
   - action: utter_greet
@@ -209,5 +231,30 @@ stories:
     - driver: hamilton
   - intent: thankyou
   - action: utter_noworries
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_next_race
+  - action: action_search_next_race
+  - intent: thankyou
+  - action: utter_noworries
+  - intent: request_drivers_by_constructor
+  - action: drivers_by_constructor_form
+  - active_loop: drivers_by_constructor_form
+  - slot_was_set:
+    - constructor: "McLaren"
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: action_search_drivers_by_constructor
+  - intent: search_driver
+  - action: action_search_driver
+  - slot_was_set:
+    - driver: norris
   - intent: goodbye
   - action: utter_goodbye

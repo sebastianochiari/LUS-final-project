@@ -1,0 +1,106 @@
+[
+  {
+    "text": "no thank you",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.9821893572807312
+    }
+  },
+  {
+    "text": "no this does not work for me",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.9798702001571655
+    }
+  },
+  {
+    "text": "New query coming",
+    "intent": "reset_slots",
+    "intent_prediction": {
+      "name": "search_next_race",
+      "confidence": 0.6970205903053284
+    }
+  },
+  {
+    "text": "for the 2018 season",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "search_season_winner",
+      "confidence": 0.9731099009513855
+    }
+  },
+  {
+    "text": "goodbye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.9991269707679749
+    }
+  },
+  {
+    "text": "good by",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.7862552404403687
+    }
+  },
+  {
+    "text": "I want the Force India drivers for the 2018 season?",
+    "intent": "request_drivers_by_constructor",
+    "intent_prediction": {
+      "name": "search_season_winner",
+      "confidence": 0.4144417643547058
+    }
+  },
+  {
+    "text": "which were the Force India pilots for the 2014 season?",
+    "intent": "request_drivers_by_constructor",
+    "intent_prediction": {
+      "name": "search_season_winner",
+      "confidence": 0.9283966422080994
+    }
+  },
+  {
+    "text": "help",
+    "intent": "request_info",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.9204201698303223
+    }
+  },
+  {
+    "text": "need info",
+    "intent": "request_info",
+    "intent_prediction": {
+      "name": "search_driver",
+      "confidence": 0.8279130458831787
+    }
+  },
+  {
+    "text": "great",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7256691455841064
+    }
+  },
+  {
+    "text": "thanks",
+    "intent": "thankyou",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5391526818275452
+    }
+  },
+  {
+    "text": "good afternoon",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.6381458640098572
+    }
+  }
+]

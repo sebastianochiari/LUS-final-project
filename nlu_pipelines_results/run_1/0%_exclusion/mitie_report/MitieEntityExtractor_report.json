@@ -1,0 +1,48 @@
+{
+  "constructor": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 4,
+    "confused_with": {}
+  },
+  "driver": {
+    "precision": 0.8571428571428571,
+    "recall": 1.0,
+    "f1-score": 0.923076923076923,
+    "support": 6,
+    "confused_with": {}
+  },
+  "year": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 7,
+    "confused_with": {}
+  },
+  "circuit": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 0.9473684210526315,
+    "recall": 1.0,
+    "f1-score": 0.972972972972973,
+    "support": 18
+  },
+  "macro avg": {
+    "precision": 0.9642857142857143,
+    "recall": 1.0,
+    "f1-score": 0.9807692307692307,
+    "support": 18
+  },
+  "weighted avg": {
+    "precision": 0.9523809523809523,
+    "recall": 1.0,
+    "f1-score": 0.9743589743589745,
+    "support": 18
+  }
+}

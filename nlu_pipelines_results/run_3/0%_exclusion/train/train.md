@@ -1,0 +1,354 @@
+## intent:deny
+- no
+- do you have something else
+- no new selection
+- no thanks
+- uh no
+
+## intent:reset_slots
+- Clean the slots
+- Reset the slots
+- Wipe out the slots
+- I want to do a new search
+- New question
+
+## intent:inform
+- [2020](year)
+- [1997](year)
+- in [1976](year)
+- [2021](year)
+- for [2019](year)
+- oh sorry, in [2016](year)
+- [Silverstone](circuit)
+
+## intent:goodbye
+- thanks, bye
+- cu
+- see you around
+- bye bye friend
+- see you later
+- good night
+- have a nice day
+- cee you later
+- bye bye
+
+## intent:request_drivers_by_constructor
+- drivers for [mclaren](constructor)
+- who drove for [Sauber](constructor) in [2015](year)?
+- [Red Bull](constructor) pilots
+- I want to know who drives for [Sauber](constructor)
+- [2014](year) [Renault](constructor) drivers
+- Who are the [McLaren](constructor) drivers?
+- who is racing for [Mercedes](constructor)?
+- which are the drivers of [Haas](constructor) racing team?
+- [Williams](constructor) drivers
+- Who drives for [Ferrari](constructor)?
+
+## intent:request_info
+- what are you able to do?
+- need some help
+- what are your functionalities?
+- tell me what you're able to do
+- what can I ask to you?
+- what can you do?
+- tell me what you do
+- what can I ask?
+- what are you capable of?
+- list of questions
+- what are your skills?
+
+## intent:affirm
+- uh yes
+- that's correct
+- i love that
+- yeah
+- yes right
+- let's do it
+- yea
+- right on
+- yes
+- yes and i dont care
+- ye
+- correct
+- yes knocking
+
+## intent:search_driver
+- What can you find regarding [Antonio Giovinazzi](driver)?
+- I want some info about [Lewis Hamilton](driver)
+- I would like to know about [Michael Schumacher](driver)
+- What you know about [Kevin Magnussen](driver)?
+- Looking for [Verstappen](driver)
+- Do you know [Roman Grosjean](driver)?
+- Does [Felipe Massa](driver) race in Formula 1?
+- I'm looking for [Vettel](driver)
+- of [Magnussen](driver)
+- Is [Maldonado](driver) a F1 driver?
+- tell me more about the driver
+- about [Lando Norris](driver)
+- Ever heard of [Niki Lauda](driver)?
+
+## intent:stop
+- that's not what i want
+- and you call yourself bot company? pff
+- you can't help me with what i need
+- ok i guess you can't help me
+- i guess you can't help me then
+- that was shit, you're not helping
+- this conversation is not really helpful
+- ok then you cant help me
+- and that's it?
+- stop
+- this is leading to nothing
+- hm i don't think you can do what i want
+- I think you cant help me
+- ok, but that doesnt help me
+
+## intent:request_race_results
+- What was the result of the [Austrian](circuit) Grand Prix
+- Searching for a race standing
+- I'm looking for a race result
+- I want the [2019](year) [Silverstone](circuit) Grand Prix results
+- Looking for a race
+- I want the results of a race
+- Give me the results of the race
+- Looking for a race result
+- I want a race result
+- can you tell me the race results of [last](year) year race?
+- [Emilia Romagna](circuit) Grand Prix
+- Looking for grand prix results
+- [Italian](circuit) Grand prix results
+- great, I'm looking for a race result
+- [Singapore](circuit) [2020](year) results
+- [Silverstone](circuit) race results
+- I want to know the race results of the [British](circuit) Grand Prix in [2008](year)
+
+## intent:search_season_winner
+- find who won in [2013](year)
+- [1965](year) championship winner
+- can you find me the winner of the [2015](year) season?
+- who won the [2002](year) championship?
+- can you tell me [last](year) season winner?
+- tell me the [2016](year) F1 winner?
+- who was the season winner in [2016](year)?
+- who won the [last](year) F1 season?
+- who won the [2020](year) F1 championship?
+- looking for the [1975](year) winner
+- [1983](year) winner thanks
+- find me who won the Formula1 championship in [2014](year)
+- who is the Formula1 season winner?
+- [1987](year) season winner thanks
+- who was the winner in [1987](year)?
+- I want to know the [2012](year) formula 1 winner
+- [last](year) season winner?
+- cool, who was the [last](year) season winner?
+
+## intent:search_next_race
+- When next race?
+- Next race
+- When will the nearest race be?
+- Where will the upcoming race be?
+- When nearest race?
+- Where will the nearest race be?
+- Where will the next race be?
+- When the near race will be?
+- Where will the coming race be?
+- Where will the near race be?
+- When will the near race be?
+- When is coming the nearest race?
+- Next race country
+- Near race
+- Tell me the next race
+- Next race date
+- When will the upcoming race be?
+- yes, when will be the next race?
+- Upcoming race
+
+## intent:thankyou
+- thank you goodbye
+- thank you goodbye noise
+- okay thank you good bye
+- thank you good bye
+- you rock
+- and thats all thank you and good bye
+- sorry about my mistakes thank you good bye
+- thanks goodbye
+- thanks, bye
+- um okay thank you good bye
+- unintelligible thank you goodbye
+- noise thank you goodbye
+- um thank you good bye
+- okay thank you goodbye
+- thank you noise
+- thank you
+- thank you bye
+- uh okay thank you good bye
+- breath thank you very much goodbye
+- noise thank you good bye
+- thank you goodbye noise thank you goodbye
+- thank you and good bye
+
+## intent:greet
+- yo
+- hello everybody
+- hello robot
+- hi
+- hello is anybody there
+- Hi
+- hey bot!
+- Hi bot
+- hey
+- hi?
+- hey hey
+- Hello
+- good evening
+- heeey
+- hi there
+- good morning
+- let's go
+- hi Mister
+- hello
+- hi pal!
+- Hey bot
+- hello there
+- hallo
+- goodmorning
+- moin
+- hi folks
+- hello friend
+- Hey
+- greetings
+
+## lookup:circuit
+- Bahrain
+- Emilia Romagna
+- Algarve
+- Portugal
+- Barcelona
+- Catalunya
+- Monaco
+- Spain
+- Italy
+- French
+- Baku
+- Arzebaijan
+- Spielberg
+- Austrian
+- British
+- Silverstone
+- Hungarian
+- Spa
+- Belgium
+- Dutch
+- Sochi
+- Russian
+- Singapore
+- Marina Bay
+- Malaysia
+- Japan
+- Suzuka
+- Austin
+- USA
+- America
+- Mexico
+- Brasil
+- Brasilian
+- Saudi Arabia
+- Abu Dhabi
+- Yas Marina
+- Australian
+- Melbourne
+
+## lookup:constructor
+- alfa romeo
+- alphatauri
+- alpine
+- renault
+- aston martin
+- ferrari
+- haas
+- mclaren
+- mercedes
+- red bull
+- williams
+- sauber
+- force india
+- racing point
+- toro rosso
+- lotus
+- HRT
+- Toyota
+- BMW Sauber
+- Brawn
+
+## lookup:driver
+- fernando alonso
+- alonso
+- valtteri bottas
+- bottas
+- pierre gasly
+- gasly
+- antonio giovinazzi
+- giovinazzi
+- lewis hamilton
+- hamilton
+- nicholas latifi
+- latifi
+- charles leclerc
+- leclerc
+- nikita mazepin
+- mazepin
+- lando norris
+- norris
+- esteban ocon
+- ocon
+- sergio perez
+- perez
+- kimi raikkonen
+- raikkonen
+- daniel ricciardo
+- ricciardo
+- george russell
+- russel
+- carlos sainz
+- sainz
+- mick schumacher
+- michael schumacher
+- schumacher
+- lance stroll
+- stroll
+- yuki tsunoda
+- tsunoda
+- max verstappen
+- verstappen
+- sebastian vettel
+- vettel
+- jack aitken
+- aitken
+- alexander albon
+- albon
+- pietro fittipaldi
+- fittipaldi
+- romain grosjean
+- grosjean
+- nico hulkenberg
+- hulkenberg
+- danil kvyat
+- kvyat
+- kevin magnussen
+- magnussen
+- robert kubica
+- kubica
+- marcus ericsson
+- ericsson
+- brendon hartley
+- hartley
+- sergey sirotkin
+- sirotkin
+- stoffel vandoorne
+- vandoorne
+- jenson button
+- button
+- felipe massa
+- massa
+- nico rosberg
+- rosberg

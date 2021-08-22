@@ -1,0 +1,23 @@
+[
+  {
+    "text": "Is Maldonado a F1 driver?",
+    "entities": [
+      {
+        "start": 3,
+        "end": 12,
+        "value": "Maldonado",
+        "entity": "driver"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "driver",
+        "value": "Is Maldonado",
+        "start": 0,
+        "end": 12,
+        "confidence": null,
+        "extractor": "MitieEntityExtractor"
+      }
+    ]
+  }
+]

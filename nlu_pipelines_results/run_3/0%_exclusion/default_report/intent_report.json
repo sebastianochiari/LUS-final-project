@@ -1,0 +1,133 @@
+{
+  "reset_slots": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1-score": 0.6666666666666666,
+    "support": 2,
+    "confused_with": {
+      "search_next_race": 1
+    }
+  },
+  "affirm": {
+    "precision": 1.0,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.8,
+    "support": 3,
+    "confused_with": {
+      "greet": 1
+    }
+  },
+  "request_info": {
+    "precision": 1.0,
+    "recall": 0.3333333333333333,
+    "f1-score": 0.5,
+    "support": 3,
+    "confused_with": {
+      "stop": 1,
+      "search_driver": 1
+    }
+  },
+  "search_next_race": {
+    "precision": 0.8333333333333334,
+    "recall": 1.0,
+    "f1-score": 0.9090909090909091,
+    "support": 5,
+    "confused_with": {}
+  },
+  "search_season_winner": {
+    "precision": 0.625,
+    "recall": 1.0,
+    "f1-score": 0.7692307692307693,
+    "support": 5,
+    "confused_with": {}
+  },
+  "thankyou": {
+    "precision": 0.5,
+    "recall": 0.8,
+    "f1-score": 0.6153846153846154,
+    "support": 5,
+    "confused_with": {
+      "deny": 1
+    }
+  },
+  "stop": {
+    "precision": 0.6666666666666666,
+    "recall": 1.0,
+    "f1-score": 0.8,
+    "support": 4,
+    "confused_with": {}
+  },
+  "inform": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1,
+    "confused_with": {
+      "search_season_winner": 1
+    }
+  },
+  "deny": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2,
+    "confused_with": {
+      "thankyou": 1,
+      "stop": 1
+    }
+  },
+  "request_race_results": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 4,
+    "confused_with": {}
+  },
+  "goodbye": {
+    "precision": 1.0,
+    "recall": 0.3333333333333333,
+    "f1-score": 0.5,
+    "support": 3,
+    "confused_with": {
+      "thankyou": 2
+    }
+  },
+  "search_driver": {
+    "precision": 0.8,
+    "recall": 1.0,
+    "f1-score": 0.888888888888889,
+    "support": 4,
+    "confused_with": {}
+  },
+  "request_drivers_by_constructor": {
+    "precision": 1.0,
+    "recall": 0.3333333333333333,
+    "f1-score": 0.5,
+    "support": 3,
+    "confused_with": {
+      "search_season_winner": 2
+    }
+  },
+  "greet": {
+    "precision": 0.875,
+    "recall": 0.875,
+    "f1-score": 0.875,
+    "support": 8,
+    "confused_with": {
+      "thankyou": 1
+    }
+  },
+  "accuracy": 0.75,
+  "macro avg": {
+    "precision": 0.7357142857142858,
+    "recall": 0.6315476190476189,
+    "f1-score": 0.6303044178044178,
+    "support": 52
+  },
+  "weighted avg": {
+    "precision": 0.7818910256410256,
+    "recall": 0.75,
+    "f1-score": 0.7203350068734685,
+    "support": 52
+  }
+}

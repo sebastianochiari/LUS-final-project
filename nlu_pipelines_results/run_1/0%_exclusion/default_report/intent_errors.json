@@ -1,0 +1,82 @@
+[
+  {
+    "text": "no this does not work for me",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.9891752004623413
+    }
+  },
+  {
+    "text": "I want to ask you something else",
+    "intent": "reset_slots",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.8847139477729797
+    }
+  },
+  {
+    "text": "see you around",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.6810685396194458
+    }
+  },
+  {
+    "text": "goodbye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.985369861125946
+    }
+  },
+  {
+    "text": "i love that",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.5815869569778442
+    }
+  },
+  {
+    "text": "let's do it",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.6000412702560425
+    }
+  },
+  {
+    "text": "Is Maldonado a F1 driver?",
+    "intent": "search_driver",
+    "intent_prediction": {
+      "name": "request_drivers_by_constructor",
+      "confidence": 0.8294636607170105
+    }
+  },
+  {
+    "text": "and you call yourself bot company? pff",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.35667335987091064
+    }
+  },
+  {
+    "text": "Searching for a race standing",
+    "intent": "request_race_results",
+    "intent_prediction": {
+      "name": "search_next_race",
+      "confidence": 0.4172842502593994
+    }
+  },
+  {
+    "text": "yo",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.542096734046936
+    }
+  }
+]

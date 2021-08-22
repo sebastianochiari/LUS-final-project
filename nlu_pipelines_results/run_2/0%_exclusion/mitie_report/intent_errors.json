@@ -1,0 +1,90 @@
+[
+  {
+    "text": "uh no",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.34304347920731915
+    }
+  },
+  {
+    "text": "no thanks",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.25395144077193266
+    }
+  },
+  {
+    "text": "New question",
+    "intent": "reset_slots",
+    "intent_prediction": {
+      "name": "request_race_results",
+      "confidence": 0.42274844113934656
+    }
+  },
+  {
+    "text": "Clean the slots",
+    "intent": "reset_slots",
+    "intent_prediction": {
+      "name": "request_drivers_by_constructor",
+      "confidence": 0.26407718405577
+    }
+  },
+  {
+    "text": "good by",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.29371277431002074
+    }
+  },
+  {
+    "text": "I want to know who drives for Sauber",
+    "intent": "request_drivers_by_constructor",
+    "intent_prediction": {
+      "name": "search_driver",
+      "confidence": 0.1640094114272688
+    }
+  },
+  {
+    "text": "need info",
+    "intent": "request_info",
+    "intent_prediction": {
+      "name": "reset_slots",
+      "confidence": 0.18872112667420965
+    }
+  },
+  {
+    "text": "list of questions",
+    "intent": "request_info",
+    "intent_prediction": {
+      "name": "request_race_results",
+      "confidence": 0.3716083507353463
+    }
+  },
+  {
+    "text": "i love that",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.2351460101514421
+    }
+  },
+  {
+    "text": "let's do it",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.41456912055900186
+    }
+  },
+  {
+    "text": "do you get anything?",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "request_info",
+      "confidence": 0.30818923317466945
+    }
+  }
+]

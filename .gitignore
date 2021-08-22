@@ -166,3 +166,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# DAT heavy file
+data/total_word_feature_extractor.dat

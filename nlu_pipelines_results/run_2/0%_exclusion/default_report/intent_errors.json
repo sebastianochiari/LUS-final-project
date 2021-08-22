@@ -1,0 +1,42 @@
+[
+  {
+    "text": "list of questions",
+    "intent": "request_info",
+    "intent_prediction": {
+      "name": "reset_slots",
+      "confidence": 0.4236048758029938
+    }
+  },
+  {
+    "text": "i love that",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.8897778987884521
+    }
+  },
+  {
+    "text": "let's do it",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9594907760620117
+    }
+  },
+  {
+    "text": "What can you find regarding Antonio Giovinazzi?",
+    "intent": "search_driver",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.5830758810043335
+    }
+  },
+  {
+    "text": "do you get anything?",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "request_info",
+      "confidence": 0.2806333303451538
+    }
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "text": "good by",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.9260255098342896
+    }
+  },
+  {
+    "text": "list of questions",
+    "intent": "request_info",
+    "intent_prediction": {
+      "name": "search_season_winner",
+      "confidence": 0.40161755681037903
+    }
+  },
+  {
+    "text": "i love that",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.7754685878753662
+    }
+  },
+  {
+    "text": "let's do it",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9583675265312195
+    }
+  },
+  {
+    "text": "What can you find regarding Antonio Giovinazzi?",
+    "intent": "search_driver",
+    "intent_prediction": {
+      "name": "search_season_winner",
+      "confidence": 0.7361115217208862
+    }
+  }
+]

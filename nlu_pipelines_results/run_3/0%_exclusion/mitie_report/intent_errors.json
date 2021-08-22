@@ -1,0 +1,114 @@
+[
+  {
+    "text": "no thank you",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.2954035223716923
+    }
+  },
+  {
+    "text": "no this does not work for me",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.24876625323370966
+    }
+  },
+  {
+    "text": "Please can you reset the slots?",
+    "intent": "reset_slots",
+    "intent_prediction": {
+      "name": "search_driver",
+      "confidence": 0.20538130870203372
+    }
+  },
+  {
+    "text": "for the 2018 season",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "search_season_winner",
+      "confidence": 0.5055405540970196
+    }
+  },
+  {
+    "text": "goodbye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.3520101517575315
+    }
+  },
+  {
+    "text": "good by",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.3489904403929652
+    }
+  },
+  {
+    "text": "I want the Force India drivers for the 2018 season?",
+    "intent": "request_drivers_by_constructor",
+    "intent_prediction": {
+      "name": "search_season_winner",
+      "confidence": 0.1721083986785186
+    }
+  },
+  {
+    "text": "which were the Force India pilots for the 2014 season?",
+    "intent": "request_drivers_by_constructor",
+    "intent_prediction": {
+      "name": "search_season_winner",
+      "confidence": 0.2739414318892291
+    }
+  },
+  {
+    "text": "tell me the Alpha Tauri pilots",
+    "intent": "request_drivers_by_constructor",
+    "intent_prediction": {
+      "name": "search_driver",
+      "confidence": 0.22252963302668766
+    }
+  },
+  {
+    "text": "help",
+    "intent": "request_info",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.32354725076755997
+    }
+  },
+  {
+    "text": "great",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.6330812954425965
+    }
+  },
+  {
+    "text": "Daniel Ricciardo",
+    "intent": "search_driver",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.34382470441044133
+    }
+  },
+  {
+    "text": "do you get anything?",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "request_info",
+      "confidence": 0.2516063223462988
+    }
+  },
+  {
+    "text": "When it's going to be the next race?",
+    "intent": "search_next_race",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.1664011741537172
+    }
+  }
+]

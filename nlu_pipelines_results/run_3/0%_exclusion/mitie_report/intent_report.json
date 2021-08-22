@@ -1,0 +1,136 @@
+{
+  "reset_slots": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1-score": 0.6666666666666666,
+    "support": 2,
+    "confused_with": {
+      "search_driver": 1
+    }
+  },
+  "affirm": {
+    "precision": 1.0,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.8,
+    "support": 3,
+    "confused_with": {
+      "thankyou": 1
+    }
+  },
+  "request_info": {
+    "precision": 0.6666666666666666,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.6666666666666666,
+    "support": 3,
+    "confused_with": {
+      "stop": 1
+    }
+  },
+  "search_next_race": {
+    "precision": 1.0,
+    "recall": 0.8,
+    "f1-score": 0.888888888888889,
+    "support": 5,
+    "confused_with": {
+      "stop": 1
+    }
+  },
+  "search_season_winner": {
+    "precision": 0.625,
+    "recall": 1.0,
+    "f1-score": 0.7692307692307693,
+    "support": 5,
+    "confused_with": {}
+  },
+  "thankyou": {
+    "precision": 0.625,
+    "recall": 1.0,
+    "f1-score": 0.7692307692307693,
+    "support": 5,
+    "confused_with": {}
+  },
+  "stop": {
+    "precision": 0.5,
+    "recall": 0.75,
+    "f1-score": 0.6,
+    "support": 4,
+    "confused_with": {
+      "request_info": 1
+    }
+  },
+  "inform": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1,
+    "confused_with": {
+      "search_season_winner": 1
+    }
+  },
+  "deny": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2,
+    "confused_with": {
+      "thankyou": 1,
+      "stop": 1
+    }
+  },
+  "request_race_results": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 4,
+    "confused_with": {}
+  },
+  "goodbye": {
+    "precision": 1.0,
+    "recall": 0.3333333333333333,
+    "f1-score": 0.5,
+    "support": 3,
+    "confused_with": {
+      "thankyou": 1,
+      "greet": 1
+    }
+  },
+  "search_driver": {
+    "precision": 0.6,
+    "recall": 0.75,
+    "f1-score": 0.6666666666666665,
+    "support": 4,
+    "confused_with": {
+      "greet": 1
+    }
+  },
+  "request_drivers_by_constructor": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 3,
+    "confused_with": {
+      "search_season_winner": 2,
+      "search_driver": 1
+    }
+  },
+  "greet": {
+    "precision": 0.8,
+    "recall": 1.0,
+    "f1-score": 0.888888888888889,
+    "support": 8,
+    "confused_with": {}
+  },
+  "accuracy": 0.7307692307692307,
+  "macro avg": {
+    "precision": 0.6297619047619047,
+    "recall": 0.6047619047619046,
+    "f1-score": 0.5868742368742368,
+    "support": 52
+  },
+  "weighted avg": {
+    "precision": 0.6932692307692307,
+    "recall": 0.7307692307692307,
+    "f1-score": 0.6836127547666009,
+    "support": 52
+  }
+}

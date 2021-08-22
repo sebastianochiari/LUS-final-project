@@ -55,6 +55,27 @@ nlu:
     - see you bye
     - bye bye friend
     - thanks, bye
+    - um thank you good bye
+    - okay cool uh good bye thank you
+    - okay thank you good bye
+    - and thats all thank you and good bye
+    - thank you and good bye
+    - sorry about my mistakes thank you good bye
+    - nice thank you good bye
+    - thank you goodbye
+    - okay thank you goodbye
+    - uh thank you good bye
+    - thank you goodbye
+    - thank you goodbye noice thank you goodbye
+    - thank you goodbye
+    - thanks goodbye
+    - ah thank you goodbye
+    - thank you goodbye
+    - thank you goodbye
+    - uh okay thank you good bye
+    - thank you bye
+    - um okay thank you good bye
+    - thanks, bye
 - intent: affirm
   examples: |
     - yeah
@@ -77,43 +98,38 @@ nlu:
 - intent: deny
   examples: |
     - no
+    - nope
+    - not at all
+    - hell no
+    - absolutely no
+    - not what I was looking for
     - no new selection
     - no thanks
     - no thank you
     - uh no
-    - breath no
+    - uhm no
+    - no buddyu
+    - no way
+    - abs not
     - do you have something else
     - no this does not work for me
 - intent: thankyou
   examples: |
-    - um thank you good bye
-    - okay cool uh good bye thank you
-    - okay thank you good bye
-    - you rock
-    - and thats all thank you and good bye
-    - thank you and good bye
-    - sorry about my mistakes thank you good bye
-    - noise thank you good bye
-    - thank you goodbye noise
-    - okay thank you goodbye
-    - uh thank you good bye
-    - thank you goodbye
-    - thank you goodbye noise thank you goodbye
-    - breath thank you goodbye
-    - thank you
+    - um thank you
+    - okay cool uh
     - okay thank you
-    - thanks goodbye
-    - ah thank you goodbye
-    - thank you noise
-    - thank you good bye
-    - breath thank you very much goodbye
+    - you rock
+    - and thats all thank you
+    - thank you
+    - nice thank you
+    - uh thank you
     - thanks
-    - noise thank you goodbye
-    - unintelligible thank you goodbye
-    - uh okay thank you good bye
-    - thank you bye
-    - um okay thank you good bye
-    - thanks, bye
+    - ah thanks
+    - thank you very much
+    - uh okay thanks
+    - great, thanks
+    - cheers
+    - okay, thanks
 - intent: stop
   examples: |
     - ok then you cant help me
@@ -158,9 +174,14 @@ nlu:
     - tell me a joke
     - I want to laugh
     - Tell an F1 joke please
+    - tell a joke
+    - do you know some F1 humor?
+    - F1 gag
+    - laugh
 - intent: reset_slots
   examples: |
     - I want to do a new search
+    - new search
     - Please can you reset the slots?
     - Reset the slots
     - I want to ask you something else
@@ -225,6 +246,7 @@ nlu:
     - [2021](year)
     - [2019](year)
     - [Silverstone](circuit)
+    - [Maldonado](driver)
 - intent: request_race_results
   examples: |
     - Give me the results of the race
@@ -245,7 +267,7 @@ nlu:
     - Looking for a race result
     - I'm looking for a race result
     - I want the results of a race
-    - I want the [2019](year) [Silversone](circuit)Grand Prix results
+    - I want the [2019](year) [Silverstone](circuit) Grand Prix results
     - give me a race result
     - I want a race result
     - can you tell me the race results of [last](year) year race?
@@ -357,37 +379,73 @@ nlu:
 - lookup: driver
   examples: |
     - fernando alonso
+    - alonso
     - valtteri bottas
+    - bottas
     - pierre gasly
+    - gasly
     - antonio giovinazzi
+    - giovinazzi
     - lewis hamilton
+    - hamilton
     - nicholas latifi
+    - latifi
     - charles leclerc
+    - leclerc
     - nikita mazepin
+    - mazepin
     - lando norris
+    - norris
     - esteban ocon
+    - ocon
     - sergio perez
+    - perez
     - kimi raikkonen
+    - raikkonen
     - daniel ricciardo
+    - ricciardo
     - george russell
+    - russel
     - carlos sainz
+    - sainz
     - mick schumacher
     - michael schumacher
+    - schumacher
     - lance stroll
+    - stroll
     - yuki tsunoda
+    - tsunoda
     - max verstappen
+    - verstappen
     - sebastian vettel
+    - vettel
     - jack aitken
+    - aitken
     - alexander albon
+    - albon
     - pietro fittipaldi
+    - fittipaldi
     - romain grosjean
+    - grosjean
     - nico hulkenberg
+    - hulkenberg
     - danil kvyat
+    - kvyat
     - kevin magnussen
+    - magnussen
     - robert kubica
+    - kubica
     - marcus ericsson
+    - ericsson
     - brendon hartley
+    - hartley
     - sergey sirotkin
+    - sirotkin
     - stoffel vandoorne
+    - vandoorne
     - jenson button
+    - button
     - felipe massa
+    - massa
+    - nico rosberg
+    - rosberg
