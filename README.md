@@ -2,14 +2,13 @@
 **Rasa based dialog system within the book domain**.  
 Final project for *Language Understanding Systems* course @ UNITN
 
-The detailed description of the whole dialog system can be found inside the `report.pdf`. 
+The detailed description of the whole dialog system can be found inside the `report` folder. 
 
 ## ⚙️ Requirements
 
 - `Python 3.6.*`, `3.7.*` or `3.8.*` (for this project `Python 3.7.10` has been used)
 - [`Rasa`](https://rasa.com/docs/rasa/installation)
 - [`Rasa X`](https://rasa.com/docs/rasa-x/) (*optional*)
-- [`Duckling`](https://github.com/duckling-python-wrapper/fb_duckling)
 
 ## 🔧 How to use
 
