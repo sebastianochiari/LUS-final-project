@@ -1,98 +1,58 @@
 [
   {
-    "text": "no thank you",
+    "text": "do you know some F1 humor?",
+    "intent": "request_joke",
+    "intent_prediction": {
+      "name": "search_driver",
+      "confidence": 0.9884844422340393
+    }
+  },
+  {
+    "text": "Please can you reset the slots?",
+    "intent": "reset_slots",
+    "intent_prediction": {
+      "name": "search_driver",
+      "confidence": 0.37358731031417847
+    }
+  },
+  {
+    "text": "great, thanks",
+    "intent": "thankyou",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.7584604024887085
+    }
+  },
+  {
+    "text": "nope",
     "intent": "deny",
     "intent_prediction": {
-      "name": "thankyou",
-      "confidence": 0.9460212588310242
+      "name": "greet",
+      "confidence": 0.688129723072052
     }
   },
   {
-    "text": "no this does not work for me",
-    "intent": "deny",
+    "text": "what about the 2019 season?",
+    "intent": "search_season_winner",
     "intent_prediction": {
-      "name": "stop",
-      "confidence": 0.9097263216972351
+      "name": "inform",
+      "confidence": 0.8236843943595886
     }
   },
   {
-    "text": "for the 2018 season",
-    "intent": "inform",
-    "intent_prediction": {
-      "name": "search_season_winner",
-      "confidence": 0.987259030342102
-    }
-  },
-  {
-    "text": "goodbye",
-    "intent": "goodbye",
-    "intent_prediction": {
-      "name": "thankyou",
-      "confidence": 0.9916741847991943
-    }
-  },
-  {
-    "text": "good by",
-    "intent": "goodbye",
-    "intent_prediction": {
-      "name": "thankyou",
-      "confidence": 0.8732543587684631
-    }
-  },
-  {
-    "text": "I want the Force India drivers for the 2018 season?",
-    "intent": "request_drivers_by_constructor",
+    "text": "Does Felipe Massa race in Formula 1?",
+    "intent": "search_driver",
     "intent_prediction": {
       "name": "search_season_winner",
-      "confidence": 0.9745545983314514
+      "confidence": 0.8344867825508118
     }
   },
   {
-    "text": "which were the Force India pilots for the 2014 season?",
-    "intent": "request_drivers_by_constructor",
-    "intent_prediction": {
-      "name": "search_season_winner",
-      "confidence": 0.9693737626075745
-    }
-  },
-  {
-    "text": "great",
-    "intent": "affirm",
-    "intent_prediction": {
-      "name": "goodbye",
-      "confidence": 0.3722715973854065
-    }
-  },
-  {
-    "text": "nothing else?",
-    "intent": "stop",
-    "intent_prediction": {
-      "name": "deny",
-      "confidence": 0.847756564617157
-    }
-  },
-  {
-    "text": "do you get anything?",
-    "intent": "stop",
-    "intent_prediction": {
-      "name": "thankyou",
-      "confidence": 0.3123527467250824
-    }
-  },
-  {
-    "text": "goodevening",
+    "text": "let's go",
     "intent": "greet",
     "intent_prediction": {
-      "name": "thankyou",
-      "confidence": 0.49055802822113037
-    }
-  },
-  {
-    "text": "good afternoon",
-    "intent": "greet",
-    "intent_prediction": {
-      "name": "thankyou",
-      "confidence": 0.5956076383590698
+      "name": "affirm",
+      "confidence": 0.9897804260253906
     }
   }
 ]

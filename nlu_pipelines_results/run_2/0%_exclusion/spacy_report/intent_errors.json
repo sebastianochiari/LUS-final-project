@@ -1,26 +1,26 @@
 [
   {
-    "text": "good by",
-    "intent": "goodbye",
+    "text": "do you know some F1 humor?",
+    "intent": "request_joke",
     "intent_prediction": {
-      "name": "thankyou",
-      "confidence": 0.9260255098342896
+      "name": "search_driver",
+      "confidence": 0.9168705344200134
     }
   },
   {
-    "text": "list of questions",
-    "intent": "request_info",
+    "text": "Silverstone",
+    "intent": "inform",
     "intent_prediction": {
-      "name": "search_season_winner",
-      "confidence": 0.40161755681037903
+      "name": "request_race_results",
+      "confidence": 0.9504233002662659
     }
   },
   {
-    "text": "i love that",
-    "intent": "affirm",
+    "text": "you rock",
+    "intent": "thankyou",
     "intent_prediction": {
-      "name": "stop",
-      "confidence": 0.7754685878753662
+      "name": "affirm",
+      "confidence": 0.4369628429412842
     }
   },
   {
@@ -28,15 +28,31 @@
     "intent": "affirm",
     "intent_prediction": {
       "name": "greet",
-      "confidence": 0.9583675265312195
+      "confidence": 0.982649028301239
     }
   },
   {
-    "text": "What can you find regarding Antonio Giovinazzi?",
-    "intent": "search_driver",
+    "text": "good night",
+    "intent": "goodbye",
     "intent_prediction": {
-      "name": "search_season_winner",
-      "confidence": 0.7361115217208862
+      "name": "affirm",
+      "confidence": 0.3322473168373108
+    }
+  },
+  {
+    "text": "hallo",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.47492846846580505
+    }
+  },
+  {
+    "text": "greetings",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.47256672382354736
     }
   }
 ]

@@ -1,0 +1,32 @@
+{
+  "TED_epochs_100": [
+    [
+      20
+    ]
+  ],
+  "TED_epochs_200": [
+    [
+      20
+    ]
+  ],
+  "TED_epochs_50": [
+    [
+      20
+    ]
+  ],
+  "TED_maxhistory_0": [
+    [
+      6
+    ]
+  ],
+  "TED_maxhistory_10": [
+    [
+      4
+    ]
+  ],
+  "suggested": [
+    [
+      0
+    ]
+  ]
+}

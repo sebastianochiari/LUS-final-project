@@ -1,87 +1,107 @@
 [
   {
-    "text": "I want the Force India drivers for the 2018 season?",
+    "text": "Red Bull pilots",
     "entities": [
       {
-        "start": 11,
-        "end": 22,
-        "value": "Force India",
-        "entity": "constructor"
-      },
-      {
-        "start": 39,
-        "end": 43,
-        "value": "2018",
-        "entity": "year"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "year",
-        "start": 39,
-        "end": 43,
-        "confidence_entity": 0.9576663970947266,
-        "value": "2018",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "which were the Force India pilots for the 2014 season?",
-    "entities": [
-      {
-        "start": 15,
-        "end": 26,
-        "value": "Force India",
-        "entity": "constructor"
-      },
-      {
-        "start": 42,
-        "end": 46,
-        "value": "2014",
-        "entity": "year"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "year",
-        "start": 42,
-        "end": 46,
-        "confidence_entity": 0.9595596790313721,
-        "value": "2014",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "tell me the Alpha Tauri pilots",
-    "entities": [
-      {
-        "start": 12,
-        "end": 23,
-        "value": "Alpha Tauri",
+        "start": 0,
+        "end": 8,
+        "value": "Red Bull",
         "entity": "constructor"
       }
     ],
     "predicted_entities": []
   },
   {
-    "text": "Daniel Ricciardo",
+    "text": "2014 Renault drivers",
     "entities": [
       {
         "start": 0,
-        "end": 16,
-        "value": "Daniel Ricciardo",
+        "end": 4,
+        "value": "2014",
+        "entity": "year"
+      },
+      {
+        "start": 5,
+        "end": 12,
+        "value": "Renault",
+        "entity": "constructor"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "year",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.994751513004303,
+        "value": "2014",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to know the result of the race in Baku",
+    "entities": [
+      {
+        "start": 41,
+        "end": 45,
+        "value": "Baku",
+        "entity": "circuit"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Singapore 2020 results",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "Singapore",
+        "entity": "circuit"
+      },
+      {
+        "start": 10,
+        "end": 14,
+        "value": "2020",
+        "entity": "year"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "year",
+        "start": 10,
+        "end": 14,
+        "confidence_entity": 0.9887605309486389,
+        "value": "2020",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Does Felipe Massa race in Formula 1?",
+    "entities": [
+      {
+        "start": 5,
+        "end": 17,
+        "value": "Felipe Massa",
         "entity": "driver"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "driver",
-        "start": 0,
-        "end": 6,
-        "confidence_entity": 0.7562227249145508,
-        "value": "Daniel",
+        "entity": "constructor",
+        "start": 12,
+        "end": 17,
+        "confidence_entity": 0.8114256262779236,
+        "value": "Massa",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "year",
+        "start": 34,
+        "end": 35,
+        "confidence_entity": 0.9948140382766724,
+        "value": "1",
         "extractor": "DIETClassifier"
       }
     ]
@@ -99,15 +119,45 @@
     "predicted_entities": []
   },
   {
-    "text": "Can you tell me something about Bottas?",
+    "text": "What you know about Kevin Magnussen?",
     "entities": [
       {
-        "start": 32,
-        "end": 38,
-        "value": "Bottas",
+        "start": 20,
+        "end": 35,
+        "value": "Kevin Magnussen",
         "entity": "driver"
       }
     ],
-    "predicted_entities": []
+    "predicted_entities": [
+      {
+        "entity": "driver",
+        "start": 26,
+        "end": 35,
+        "confidence_entity": 0.9983190894126892,
+        "value": "Magnussen",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "What can you find regarding Antonio Giovinazzi?",
+    "entities": [
+      {
+        "start": 28,
+        "end": 46,
+        "value": "Antonio Giovinazzi",
+        "entity": "driver"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "driver",
+        "start": 36,
+        "end": 46,
+        "confidence_entity": 0.9973495006561279,
+        "value": "Giovinazzi",
+        "extractor": "DIETClassifier"
+      }
+    ]
   }
 ]

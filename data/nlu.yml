@@ -265,6 +265,8 @@ nlu:
     - [Silverstone](circuit)
     - [Maldonado](driver)
     - [2014](year)
+    - [Monaco](circuit)
+    - [2016](year)
 - intent: request_race_results
   examples: |
     - Give me the results of the race

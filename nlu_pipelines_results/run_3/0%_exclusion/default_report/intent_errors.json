@@ -1,106 +1,66 @@
 [
   {
-    "text": "no thank you",
-    "intent": "deny",
-    "intent_prediction": {
-      "name": "thankyou",
-      "confidence": 0.9821893572807312
-    }
-  },
-  {
-    "text": "no this does not work for me",
-    "intent": "deny",
-    "intent_prediction": {
-      "name": "stop",
-      "confidence": 0.9798702001571655
-    }
-  },
-  {
-    "text": "New query coming",
-    "intent": "reset_slots",
-    "intent_prediction": {
-      "name": "search_next_race",
-      "confidence": 0.6970205903053284
-    }
-  },
-  {
-    "text": "for the 2018 season",
-    "intent": "inform",
-    "intent_prediction": {
-      "name": "search_season_winner",
-      "confidence": 0.9731099009513855
-    }
-  },
-  {
-    "text": "goodbye",
-    "intent": "goodbye",
-    "intent_prediction": {
-      "name": "thankyou",
-      "confidence": 0.9991269707679749
-    }
-  },
-  {
-    "text": "good by",
-    "intent": "goodbye",
-    "intent_prediction": {
-      "name": "thankyou",
-      "confidence": 0.7862552404403687
-    }
-  },
-  {
-    "text": "I want the Force India drivers for the 2018 season?",
-    "intent": "request_drivers_by_constructor",
-    "intent_prediction": {
-      "name": "search_season_winner",
-      "confidence": 0.4144417643547058
-    }
-  },
-  {
-    "text": "which were the Force India pilots for the 2014 season?",
-    "intent": "request_drivers_by_constructor",
-    "intent_prediction": {
-      "name": "search_season_winner",
-      "confidence": 0.9283966422080994
-    }
-  },
-  {
-    "text": "help",
-    "intent": "request_info",
-    "intent_prediction": {
-      "name": "stop",
-      "confidence": 0.9204201698303223
-    }
-  },
-  {
-    "text": "need info",
-    "intent": "request_info",
+    "text": "do you know some F1 humor?",
+    "intent": "request_joke",
     "intent_prediction": {
       "name": "search_driver",
-      "confidence": 0.8279130458831787
+      "confidence": 0.9906601309776306
     }
   },
   {
-    "text": "great",
-    "intent": "affirm",
-    "intent_prediction": {
-      "name": "greet",
-      "confidence": 0.7256691455841064
-    }
-  },
-  {
-    "text": "thanks",
+    "text": "nice thank you",
     "intent": "thankyou",
     "intent_prediction": {
-      "name": "deny",
-      "confidence": 0.5391526818275452
+      "name": "goodbye",
+      "confidence": 0.9812531471252441
     }
   },
   {
-    "text": "good afternoon",
+    "text": "do you get anything?",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5736914277076721
+    }
+  },
+  {
+    "text": "you can't help me with what i need",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "request_info",
+      "confidence": 0.8355255126953125
+    }
+  },
+  {
+    "text": "what about the 2019 season?",
+    "intent": "search_season_winner",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.9670606255531311
+    }
+  },
+  {
+    "text": "Does Felipe Massa race in Formula 1?",
+    "intent": "search_driver",
+    "intent_prediction": {
+      "name": "search_season_winner",
+      "confidence": 0.8209337592124939
+    }
+  },
+  {
+    "text": "let's go",
     "intent": "greet",
     "intent_prediction": {
-      "name": "thankyou",
-      "confidence": 0.6381458640098572
+      "name": "affirm",
+      "confidence": 0.9848342537879944
+    }
+  },
+  {
+    "text": "yo",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5160872340202332
     }
   }
 ]

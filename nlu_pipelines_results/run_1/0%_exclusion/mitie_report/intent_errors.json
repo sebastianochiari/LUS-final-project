@@ -1,18 +1,26 @@
 [
   {
-    "text": "no this does not work for me",
-    "intent": "deny",
+    "text": "tell a joke",
+    "intent": "request_joke",
     "intent_prediction": {
-      "name": "stop",
-      "confidence": 0.30930088465856015
+      "name": "goodbye",
+      "confidence": 0.1910550535449668
     }
   },
   {
-    "text": "Reset the slots",
+    "text": "F1 gag",
+    "intent": "request_joke",
+    "intent_prediction": {
+      "name": "request_race_results",
+      "confidence": 0.18673787369276582
+    }
+  },
+  {
+    "text": "New query coming",
     "intent": "reset_slots",
     "intent_prediction": {
-      "name": "request_drivers_by_constructor",
-      "confidence": 0.20414629776203763
+      "name": "request_race_results",
+      "confidence": 0.21439093204573192
     }
   },
   {
@@ -20,79 +28,55 @@
     "intent": "reset_slots",
     "intent_prediction": {
       "name": "stop",
-      "confidence": 0.27505901618520295
+      "confidence": 0.26661940592641
     }
   },
   {
-    "text": "see you around",
-    "intent": "goodbye",
+    "text": "great, thanks",
+    "intent": "thankyou",
     "intent_prediction": {
-      "name": "request_info",
-      "confidence": 0.2872535745919492
+      "name": "goodbye",
+      "confidence": 0.3082622390884601
     }
   },
   {
-    "text": "see you bye",
-    "intent": "goodbye",
+    "text": "no thank you",
+    "intent": "deny",
     "intent_prediction": {
       "name": "thankyou",
-      "confidence": 0.283672686679835
+      "confidence": 0.3030386373680085
     }
   },
   {
-    "text": "goodbye",
-    "intent": "goodbye",
-    "intent_prediction": {
-      "name": "greet",
-      "confidence": 0.4156668480505762
-    }
-  },
-  {
-    "text": "I want to know who drives for Sauber",
-    "intent": "request_drivers_by_constructor",
+    "text": "do you have something else",
+    "intent": "deny",
     "intent_prediction": {
       "name": "stop",
-      "confidence": 0.15138558371569466
+      "confidence": 0.32823522427343244
     }
   },
   {
-    "text": "i love that",
-    "intent": "affirm",
-    "intent_prediction": {
-      "name": "stop",
-      "confidence": 0.23497726064773242
-    }
-  },
-  {
-    "text": "let's do it",
-    "intent": "affirm",
-    "intent_prediction": {
-      "name": "greet",
-      "confidence": 0.37345958810709506
-    }
-  },
-  {
-    "text": "and you call yourself bot company? pff",
+    "text": "do you get anything?",
     "intent": "stop",
     "intent_prediction": {
-      "name": "greet",
-      "confidence": 0.19915965258971682
+      "name": "request_info",
+      "confidence": 0.27453668908923473
     }
   },
   {
-    "text": "Searching for a race standing",
-    "intent": "request_race_results",
+    "text": "looking for Giovinazzi please",
+    "intent": "search_driver",
     "intent_prediction": {
-      "name": "reset_slots",
-      "confidence": 0.29539386343907836
+      "name": "deny",
+      "confidence": 0.23588014858645423
     }
   },
   {
-    "text": "moin",
+    "text": "let's go",
     "intent": "greet",
     "intent_prediction": {
-      "name": "search_driver",
-      "confidence": 0.2036956922871648
+      "name": "affirm",
+      "confidence": 0.27713288957042076
     }
   }
 ]

@@ -1,42 +1,13 @@
 [
   {
-    "text": "list of questions",
+    "text": "hallo",
     "entities": [],
     "predicted_entities": [
       {
-        "entity": "year",
-        "value": "list",
+        "entity": "driver",
+        "value": "hallo",
         "start": 0,
-        "end": 4,
-        "confidence": null,
-        "extractor": "MitieEntityExtractor"
-      }
-    ]
-  },
-  {
-    "text": "What can you find regarding Antonio Giovinazzi?",
-    "entities": [
-      {
-        "start": 28,
-        "end": 46,
-        "value": "Antonio Giovinazzi",
-        "entity": "driver"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "driver",
-        "value": "regarding",
-        "start": 18,
-        "end": 27,
-        "confidence": null,
-        "extractor": "MitieEntityExtractor"
-      },
-      {
-        "entity": "driver",
-        "value": "Antonio Giovinazzi",
-        "start": 28,
-        "end": 46,
+        "end": 5,
         "confidence": null,
         "extractor": "MitieEntityExtractor"
       }

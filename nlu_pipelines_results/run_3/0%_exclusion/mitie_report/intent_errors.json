@@ -1,18 +1,18 @@
 [
   {
-    "text": "no thank you",
-    "intent": "deny",
+    "text": "do you know some F1 humor?",
+    "intent": "request_joke",
     "intent_prediction": {
-      "name": "thankyou",
-      "confidence": 0.2954035223716923
+      "name": "stop",
+      "confidence": 0.17693941865023258
     }
   },
   {
-    "text": "no this does not work for me",
-    "intent": "deny",
+    "text": "Clean the slots",
+    "intent": "reset_slots",
     "intent_prediction": {
-      "name": "stop",
-      "confidence": 0.24876625323370966
+      "name": "request_race_results",
+      "confidence": 0.3753625762834939
     }
   },
   {
@@ -20,79 +20,39 @@
     "intent": "reset_slots",
     "intent_prediction": {
       "name": "search_driver",
-      "confidence": 0.20538130870203372
+      "confidence": 0.1781645742370355
     }
   },
   {
-    "text": "for the 2018 season",
-    "intent": "inform",
+    "text": "nice thank you",
+    "intent": "thankyou",
     "intent_prediction": {
-      "name": "search_season_winner",
-      "confidence": 0.5055405540970196
+      "name": "goodbye",
+      "confidence": 0.4322595527346233
     }
   },
   {
-    "text": "goodbye",
-    "intent": "goodbye",
+    "text": "great, thanks",
+    "intent": "thankyou",
     "intent_prediction": {
-      "name": "greet",
-      "confidence": 0.3520101517575315
+      "name": "goodbye",
+      "confidence": 0.3329776424196892
     }
   },
   {
-    "text": "good by",
-    "intent": "goodbye",
+    "text": "nope",
+    "intent": "deny",
     "intent_prediction": {
-      "name": "thankyou",
-      "confidence": 0.3489904403929652
+      "name": "goodbye",
+      "confidence": 0.21789829534687732
     }
   },
   {
-    "text": "I want the Force India drivers for the 2018 season?",
-    "intent": "request_drivers_by_constructor",
-    "intent_prediction": {
-      "name": "search_season_winner",
-      "confidence": 0.1721083986785186
-    }
-  },
-  {
-    "text": "which were the Force India pilots for the 2014 season?",
-    "intent": "request_drivers_by_constructor",
-    "intent_prediction": {
-      "name": "search_season_winner",
-      "confidence": 0.2739414318892291
-    }
-  },
-  {
-    "text": "tell me the Alpha Tauri pilots",
-    "intent": "request_drivers_by_constructor",
-    "intent_prediction": {
-      "name": "search_driver",
-      "confidence": 0.22252963302668766
-    }
-  },
-  {
-    "text": "help",
-    "intent": "request_info",
-    "intent_prediction": {
-      "name": "stop",
-      "confidence": 0.32354725076755997
-    }
-  },
-  {
-    "text": "great",
+    "text": "that's correct",
     "intent": "affirm",
     "intent_prediction": {
-      "name": "thankyou",
-      "confidence": 0.6330812954425965
-    }
-  },
-  {
-    "text": "Daniel Ricciardo",
-    "intent": "search_driver",
-    "intent_prediction": {
-      "name": "greet",
-      "confidence": 0.34382470441044133
+      "name": "stop",
+      "confidence": 0.3220731496539206
     }
   },
   {
@@ -100,15 +60,47 @@
     "intent": "stop",
     "intent_prediction": {
       "name": "request_info",
-      "confidence": 0.2516063223462988
+      "confidence": 0.3019355489790224
     }
   },
   {
-    "text": "When it's going to be the next race?",
-    "intent": "search_next_race",
+    "text": "stop",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "request_info",
+      "confidence": 0.332503678768912
+    }
+  },
+  {
+    "text": "Singapore 2020 results",
+    "intent": "request_race_results",
+    "intent_prediction": {
+      "name": "request_drivers_by_constructor",
+      "confidence": 0.27606759182610946
+    }
+  },
+  {
+    "text": "see you around",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "thankyou",
+      "confidence": 0.25903726360246543
+    }
+  },
+  {
+    "text": "Does Felipe Massa race in Formula 1?",
+    "intent": "search_driver",
+    "intent_prediction": {
+      "name": "request_drivers_by_constructor",
+      "confidence": 0.24981221135628015
+    }
+  },
+  {
+    "text": "let's go",
+    "intent": "greet",
     "intent_prediction": {
       "name": "stop",
-      "confidence": 0.1664011741537172
+      "confidence": 0.3052338797894913
     }
   }
 ]

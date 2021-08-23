@@ -12,16 +12,20 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
-- story: Ask information about what the bot can do + joke
+- story: Ask information about what the bot can do
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: request_info
   - action: utter_give_info
+
+- story: Ask a joke
+  steps:
   - intent: request_joke
   - action: action_reply_with_joke
-  - intent: goodbye
-  - action: utter_goodbye
+
+- story: Ask upcoming race
+  steps:
+  - intent: search_next_race
+  - action: action_search_next_race
 
 - story: Ask winner by year
   steps:
@@ -73,7 +77,7 @@ stories:
   - intent: affirm
   - action: utter_noworries
 
-- story: Ask race results (ranking path)
+- story: Ask race results ALL GIVEN (ranking path)
   steps:
   - intent: request_race_results
   - action: race_result_form
@@ -96,7 +100,7 @@ stories:
   - action: utter_submit
   - action: action_search_race_result
 
-- story: Ask race results (driver path)
+- story: Ask race results ALL GIVEN (driver path)
   steps:
   - intent: request_race_results
   - action: race_result_form
@@ -135,13 +139,6 @@ stories:
   - active_loop: null
   - action: utter_submit
   - action: action_search_drivers_by_constructor
-
-- story: Ask upcoming race
-  steps:
-  - intent: search_next_race
-  - action: action_search_next_race
-  - intent: thankyou
-  - action: utter_noworries
 
 - story: interactive_story_1
   steps:

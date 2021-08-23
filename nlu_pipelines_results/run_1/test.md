@@ -1,82 +1,94 @@
-## intent:deny
-- no this does not work for me
-- breath no
+## intent:request_joke
+- tell a joke
+- F1 gag
 
 ## intent:reset_slots
-- Reset the slots
+- New query coming
 - I want to ask you something else
 
 ## intent:inform
+- for [2019](year)
 - in [1976](year)
 
-## intent:goodbye
-- see you around
-- see you bye
-- goodbye
-
-## intent:request_drivers_by_constructor
-- which were the [Force India](constructor) pilots for the [2014](year) season?
-- I want to know who drives for [Sauber](constructor)
-- drivers for [mclaren](constructor)
+## intent:thankyou
+- great, thanks
+- uh thank you
+- thank you
 
 ## intent:request_info
-- list of questions I can ask
-- what are you capable of?
-- what are your skills?
+- tell me what you're able to do
+- tell me what you do
+- what can I ask to you?
+
+## intent:deny
+- no thank you
+- absolutely no
+- do you have something else
 
 ## intent:affirm
-- i love that
-- let's do it
-- uh yes
+- yes yes
+- yeah
+- right on
+- yes knocking
 
-## intent:search_driver
-- I would like to know about [Michael Schumacher](driver)
-- Is [Maldonado](driver) a F1 driver?
-- What about [Sainz](driver)?
-- Tell me about [Charles Leclerc](driver)
+## intent:request_drivers_by_constructor
+- Who are the [McLaren](constructor) drivers?
+- can I get the [2014](year) [Ferrari](constructor) drivers please?
+- [Red Bull](constructor) pilots
 
 ## intent:stop
-- and you call yourself bot company? pff
-- i guess you can't help me then
-- ok then you cant help me
-- this conversation is not really helpful
+- I think you cant help me
+- ok, but that doesnt help me
+- that's not what i want
+- do you get anything?
 
 ## intent:request_race_results
-- Searching for a race standing
-- Looking for a race
-- [Italian](circuit) Grand prix results
-- Give me the grand prix standings
+- I want the race result of that race in [2018](year)
+- I want to know the race results of the [British](circuit) Grand Prix in [2008](year)
+- I'm looking for race results
+- [Singapore](circuit) [2020](year) results
+- give me a race result
 
 ## intent:search_season_winner
-- can you find me the winner of the [2015](year) season?
-- looking for the [1975](year) winner
 - cool, who was the [last](year) season winner?
-- who was the F1 champion in [1988](year)?
-- who won the [2020](year) season?
+- who was the winner in [1994](year)?
+- [1986](year) winner
+- I want to know the [2012](year) formula 1 winner
+- who won the [2020](year) F1 championship?
 
 ## intent:search_next_race
-- Where will the near race be?
-- When will the upcoming race be?
-- When the near race will be?
-- When will the nearest race be?
+- When will the near race be?
+- yes, when will be the next race?
+- Next race date
 - Next race
+- Where will the coming race be?
 
-## intent:thankyou
+## intent:goodbye
 - sorry about my mistakes thank you good bye
-- unintelligible thank you goodbye
-- thank you and good bye
-- thank you
-- thank you goodbye
+- see you later
+- see you bye
+- um thank you good bye
+- um okay thank you good bye
+- bye bye friend
+
+## intent:search_driver
+- I want to know more about that driver
+- Does [Felipe Massa](driver) race in Formula 1?
+- what can you tell about the driver?
+- tell me more about him
+- I want to know more about the driver
+- Do you know [Roman Grosjean](driver)?
+- looking for [Giovinazzi](driver) please
 
 ## intent:greet
+- heeey
+- Hey
+- hey
+- hi?
 - hello everybody
-- hey dude
-- hi folks
-- morning
-- moin
+- hello robot
+- let's go
 - hello there
-- Hey bot
-- yo
 
 ## lookup:circuit
 - Bahrain

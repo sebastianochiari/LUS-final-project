@@ -6,18 +6,18 @@
     "support": 3,
     "confused_with": {}
   },
-  "driver": {
-    "precision": 0.8333333333333334,
+  "year": {
+    "precision": 1.0,
     "recall": 1.0,
-    "f1-score": 0.9090909090909091,
-    "support": 5,
+    "f1-score": 1.0,
+    "support": 9,
     "confused_with": {}
   },
-  "year": {
-    "precision": 0.875,
+  "driver": {
+    "precision": 0.8571428571428571,
     "recall": 1.0,
-    "f1-score": 0.9333333333333333,
-    "support": 7,
+    "f1-score": 0.923076923076923,
+    "support": 6,
     "confused_with": {}
   },
   "circuit": {
@@ -28,21 +28,21 @@
     "confused_with": {}
   },
   "micro avg": {
-    "precision": 0.8947368421052632,
+    "precision": 0.9523809523809523,
     "recall": 1.0,
-    "f1-score": 0.9444444444444444,
-    "support": 17
+    "f1-score": 0.975609756097561,
+    "support": 20
   },
   "macro avg": {
-    "precision": 0.9270833333333334,
+    "precision": 0.9642857142857143,
     "recall": 1.0,
-    "f1-score": 0.9606060606060607,
-    "support": 17
+    "f1-score": 0.9807692307692307,
+    "support": 20
   },
   "weighted avg": {
-    "precision": 0.8995098039215687,
+    "precision": 0.9571428571428571,
     "recall": 1.0,
-    "f1-score": 0.9458110516934046,
-    "support": 17
+    "f1-score": 0.976923076923077,
+    "support": 20
   }
 }

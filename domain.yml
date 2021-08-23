@@ -3,19 +3,19 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- greet
-- request_joke
-- search_driver
-- request_drivers_by_constructor
-- goodbye
-- search_season_winner
+- ranking
+- request_race_results
 - inform
+- request_drivers_by_constructor
+- search_season_winner
+- goodbye
+- greet
+- search_driver
 - thankyou
 - affirm
 - search_next_race
 - request_info
-- ranking
-- request_race_results
+- request_joke
 - reset_slots
 - deny
 - stop
