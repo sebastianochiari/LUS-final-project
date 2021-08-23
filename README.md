@@ -2,7 +2,9 @@
 **Rasa based dialog system within the book domain**.  
 Final project for *Language Understanding Systems* course @ UNITN
 
-The detailed description of the whole dialog system can be found inside the `report` folder. 
+The detailed description of the whole dialog system can be found inside the `report` folder.
+
+Video demonstration of the chatbot can be found [here](https://drive.google.com/file/d/1STil5DJKEMYJ8v5sCcFc9dFwbi_CzI4X/view?usp=sharing).
 
 ## ⚙️ Requirements
 
