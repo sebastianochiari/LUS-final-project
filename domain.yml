@@ -1,46 +1,26 @@
 version: '2.0'
-config:
-  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- search_driver:
-    use_entities: true
-- goodbye:
-    use_entities: true
-- search_season_winner:
-    use_entities: true
-- thankyou:
-    use_entities: true
-- greet:
-    use_entities: true
-- affirm:
-    use_entities: true
-- search_next_race:
-    use_entities: true
-- request_info:
-    use_entities: true
-- inform:
-    use_entities: true
-- ranking:
-    use_entities: true
-- request_joke:
-    use_entities: true
-- request_race_results:
-    use_entities: true
-- reset_slots:
-    use_entities: true
-- deny:
-    use_entities: true
-- stop:
-    use_entities: true
-- driver:
-    use_entities: true
-- request_drivers_by_constructor:
-    use_entities: true
-- nlu_fallback:
-    use_entities: true
+- greet
+- request_joke
+- search_driver
+- request_drivers_by_constructor
+- goodbye
+- search_season_winner
+- inform
+- thankyou
+- affirm
+- search_next_race
+- request_info
+- ranking
+- request_race_results
+- reset_slots
+- deny
+- stop
+- driver
+- nlu_fallback
 entities:
 - circuit
 - constructor
@@ -49,34 +29,22 @@ entities:
 - year
 slots:
   year:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   driver:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   circuit:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   constructor:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   driver_or_ranking:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   requested_slot:
-    type: rasa.shared.core.slots.UnfeaturizedSlot
-    initial_value: null
-    auto_fill: true
+    type: unfeaturized
     influence_conversation: false
 responses:
   utter_greet:
@@ -178,4 +146,3 @@ forms:
     required_slots:
       constructor:
       - type: from_text
-e2e_actions: []

@@ -65,17 +65,14 @@ nlu:
     - thank you goodbye
     - okay thank you goodbye
     - uh thank you good bye
-    - thank you goodbye
     - thank you goodbye noice thank you goodbye
-    - thank you goodbye
     - thanks goodbye
     - ah thank you goodbye
-    - thank you goodbye
-    - thank you goodbye
     - uh okay thank you good bye
     - thank you bye
     - um okay thank you good bye
-    - thanks, bye
+    - thank, bye bye
+    - thanks bye
 - intent: affirm
   examples: |
     - yeah
@@ -215,6 +212,7 @@ nlu:
     - [last](year) season winner?
     - can you tell me [last](year) season winner?
     - what about the [2019](year) season?
+    - who won the F1 championship in that year?
 - intent: search_driver
   examples: |
     - Tell me about [Charles Leclerc](driver)
@@ -252,6 +250,8 @@ nlu:
     - I want to know about that driver
     - I want to know about the driver
     - I want to know about [Maldonado](driver)
+    - what can you tell me about [Vettel](driver)?
+    - what do you know about [Fernando Alonso](driver)?
 - intent: inform
   examples: |
     - oh sorry, in [2016](year)
@@ -264,6 +264,7 @@ nlu:
     - [2019](year)
     - [Silverstone](circuit)
     - [Maldonado](driver)
+    - [2014](year)
 - intent: request_race_results
   examples: |
     - Give me the results of the race
@@ -288,6 +289,7 @@ nlu:
     - give me a race result
     - I want a race result
     - can you tell me the race results of [last](year) year race?
+    - I want the race result of that race in [2018](year)
 - intent: request_drivers_by_constructor
   examples: |
     - Who drives for [Ferrari](constructor)?
@@ -305,6 +307,9 @@ nlu:
     - I want the [Force India](constructor) drivers for the [2018](year) season?
     - [2014](year) [Renault](constructor) drivers
     - [2014](year) [Haas](constructor) pilots
+    - can I get the [2014](year) [Ferrari](constructor) drivers please?
+    - tell me [2014](year) [Mclaren](constructor) drivers
+    - what about the [2015](year) drivers?
 - intent: search_next_race
   examples: |
     - When it's going to be the next race?
@@ -332,6 +337,7 @@ nlu:
     - Where will the coming race be?
     - Where will the upcoming race be?
     - yes, when will be the next race?
+    - when it's going to be the next race?
 - lookup: circuit
   examples: |
     - Bahrain

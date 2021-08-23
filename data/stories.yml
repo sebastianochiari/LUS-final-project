@@ -258,3 +258,144 @@ stories:
     - driver: norris
   - intent: goodbye
   - action: utter_goodbye
+
+- story: interactive_story_5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_drivers_by_constructor
+    entities:
+    - year: '2014'
+    - constructor: Ferrari
+  - slot_was_set:
+    - year: '2014'
+  - slot_was_set:
+    - constructor: Ferrari
+  - action: drivers_by_constructor_form
+  - active_loop: drivers_by_constructor_form
+  - slot_was_set:
+    - constructor: Ferrari
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: action_search_drivers_by_constructor
+  - slot_was_set:
+    - constructor: ferrari
+  - slot_was_set:
+    - year: '2014'
+  - intent: search_season_winner
+  - action: utter_ask_year
+  - intent: inform
+    entities:
+    - year: '2014'
+  - slot_was_set:
+    - year: '2014'
+  - action: action_search_winner_by_year
+  - slot_was_set:
+    - year: '2014'
+  - slot_was_set:
+    - driver: Lewis Hamilton
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_6
+  steps:
+  - intent: search_next_race
+  - action: action_search_next_race
+  - slot_was_set:
+    - circuit: Belgian Grand Prix
+  - intent: request_race_results
+    entities:
+    - year: '2018'
+  - slot_was_set:
+    - year: '2018'
+  - action: race_result_form
+  - active_loop: race_result_form
+  - slot_was_set:
+    - year: '2018'
+  - slot_was_set:
+    - circuit: Belgian Grand Prix
+  - slot_was_set:
+    - requested_slot: driver_or_ranking
+  - slot_was_set:
+    - driver_or_ranking: /ranking
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: action_search_race_result
+  - slot_was_set:
+    - year: 2018
+  - slot_was_set:
+    - circuit: Belgian Grand Prix
+  - slot_was_set:
+    - driver_or_ranking: /ranking
+  - slot_was_set:
+    - driver: null
+  - intent: search_driver
+    entities:
+    - driver: Vettel
+  - slot_was_set:
+    - driver: Vettel
+  - action: action_search_driver
+  - slot_was_set:
+    - driver: vettel
+  - intent: thankyou
+  - action: utter_noworries
+
+- story: interactive_story_7
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_drivers_by_constructor
+    entities:
+    - year: '2014'
+    - constructor: Mclaren
+  - slot_was_set:
+    - year: '2014'
+  - slot_was_set:
+    - constructor: Mclaren
+  - action: drivers_by_constructor_form
+  - active_loop: drivers_by_constructor_form
+  - slot_was_set:
+    - constructor: Mclaren
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: action_search_drivers_by_constructor
+  - slot_was_set:
+    - constructor: mclaren
+  - slot_was_set:
+    - year: '2014'
+  - intent: request_drivers_by_constructor
+    entities:
+    - year: '2015'
+  - slot_was_set:
+    - year: '2015'
+  - action: drivers_by_constructor_form
+  - active_loop: drivers_by_constructor_form
+  - slot_was_set:
+    - constructor: mclaren
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: action_search_drivers_by_constructor
+  - slot_was_set:
+    - constructor: mclaren
+  - slot_was_set:
+    - year: '2015'
+  - intent: search_driver
+    entities:
+    - driver: Fernando Alonso
+  - slot_was_set:
+    - driver: Fernando Alonso
+  - action: action_search_driver
+  - slot_was_set:
+    - driver: alonso
+  - intent: request_joke
+  - action: action_reply_with_joke
+  - intent: goodbye
+  - action: utter_goodbye
