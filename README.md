@@ -36,7 +36,7 @@ To **chat with the bot using the ASK infrastructure**, do the following instruct
 - launch the following commands in three separate terminal shells
 ```
 rasa run actions
-rasa run -m models --endpoints endpoint.yml
+rasa run -m models --endpoints endpoints.yml
 ngrok http 5005
 ```
 - update the endpoint on the Alexa Developer Console by selecting HTTPS, "*My development endpoint is a subdomain of a domain that has a wildcard certificate from a certificate authority*" as SSL certificate and copying the ngrok url concatenated with `webhooks/alexa_assistant/webhook`

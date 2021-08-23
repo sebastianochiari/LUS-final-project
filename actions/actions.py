@@ -46,7 +46,7 @@ class ActionSearchNextRace(Action):
         return 'action_search_next_race'
     
     async def run(self, dispatcher: "CollectingDispatcher", tracker: Tracker, domain: "DomainDict") -> List[Dict[Text, Any]]:
-        print('Executing action_search_next_race')
+        print('\n\nExecuting action_search_next_race')
 
         # get current date
         today = date.today()
@@ -102,7 +102,7 @@ class ActionSearchDriverByConstructor(Action):
     
     async def run(self, dispatcher: "CollectingDispatcher", tracker: Tracker, domain: "DomainDict") -> List[Dict[Text, Any]]:
 
-        print('Executing action_search_drivers_by_constructor')
+        print('\n\nExecuting action_search_drivers_by_constructor')
 
         constructor = tracker.get_slot('constructor')
 
@@ -162,11 +162,11 @@ class ActionSearchDriverByConstructor(Action):
             
             dispatcher.utter_message(reply)
 
-            return [SlotSet('constructor', best_match)]
+            return [SlotSet('constructor', best_match), SlotSet('year', year)]
         
         else:
             dispatcher.utter_message('It seems there is no constructor team corresponding to your input.\nTry again.')
-            return [SlotSet('constructor', None)]
+            return [SlotSet('constructor', None), SlotSet('year', None)]
     
 class ValidateRaceResultForm(FormValidationAction):
     def name(self) -> Text:
@@ -278,6 +278,8 @@ class SearchRaceResult(Action):
     async def run(self, dispatcher: "CollectingDispatcher", 
             tracker: Tracker,
             domain: "DomainDict") -> List[Dict[Text, Any]]:
+
+        print('\n\nExecuting action_search_race_result')
 
         year = tracker.get_slot('year')
         circuit = tracker.get_slot('circuit')
@@ -401,6 +403,8 @@ class ActionSearchWinnerByYear(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
+        print('\n\nExecuting action_search_winner_by_year')
+        
         year = tracker.get_slot('year')
 
         if year == 'last':
@@ -434,6 +438,8 @@ class ActionSearchDriver(Action):
     async def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        print('\n\nExecuting action_search_driver')
 
         driver = tracker.get_slot('driver')
 

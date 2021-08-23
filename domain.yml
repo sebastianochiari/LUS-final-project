@@ -117,22 +117,17 @@ responses:
       - ask for an F1 joke
       - who won a championship in a given year
       - information about a driver
-      - which are the constructor's drivers (current or given an year)
-      - race results (podium or driver's race outcome)
-      - next race in calendar
+      - which are the constructor's drivers
+      - race results
+      - next race in calendar.
       If you want to perform a new search, remember to ask me to reset the slots, otherwise there can be some issues.
   utter_ask_year:
   - text: In which year?
   utter_ask_circuit:
-  - text: |-
-      Which circuit are you interested in?
-      (name of the circuit, name of the event or hosting country)
-  - text: |-
-      Can you tell me the circuit please?
-      (name of the circuit, name of the event or hosting country)
-  - text: |-
-      Specify the circuit.
-      (name of the circuit, name of the event or hosting country)
+  - text: Which race?
+  - text: Which circuit are you interested in?
+  - text: Can you tell me the circuit please?
+  - text: Specify the race.
   utter_ask_driver_or_ranking:
   - buttons:
     - payload: /ranking
@@ -143,6 +138,7 @@ responses:
   utter_ask_driver:
   - text: Specify the driver.
   - text: What's the driver's name?
+  - text: Driver please.
   utter_ask_constructor:
   - text: You need to specify the constructor.
   - text: Need for a scuderia name.
@@ -168,16 +164,15 @@ actions:
 - utter_rejoice
 - utter_sorry
 - utter_submit
-- validate_drivers_by_constructor_form
 - validate_race_result_form
 forms:
   race_result_form:
     required_slots:
       circuit:
       - type: from_text
-      driver_or_ranking:
-      - type: from_text
       year:
+      - type: from_text
+      driver_or_ranking:
       - type: from_text
   drivers_by_constructor_form:
     required_slots:

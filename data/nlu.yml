@@ -221,6 +221,7 @@ nlu:
     - Do you know [Roman Grosjean](driver)?
     - What can you find regarding [Antonio Giovinazzi](driver)?
     - What you know about [Kevin Magnussen](driver)?
+    - What do you know about [Bottas](driver)?
     - I would like to know about [Michael Schumacher](driver)
     - What about [Sainz](driver)?
     - I want some info about [Lewis Hamilton](driver)
@@ -232,9 +233,25 @@ nlu:
     - Does [Felipe Massa](driver) race in Formula 1?
     - Ever heard of [Niki Lauda](driver)?
     - I'm looking for [Vettel](driver)
+    - I am looking for [Riccardo](driver)
+    - looking for [Giovinazzi](driver) please
     - Looking for [Verstappen](driver)
     - what can you tell about the driver?
+    - what can you tell about that driver?
+    - what can you tell about him?
+    - more info about him
+    - more info about that driver
     - tell me more about the driver
+    - tell me more about that driver
+    - tell me more about him
+    - I want to know more about him
+    - I want to know more about that driver
+    - I want to know more about the driver
+    - I want to know more about [Maldonado](driver)
+    - I want to know about him
+    - I want to know about that driver
+    - I want to know about the driver
+    - I want to know about [Maldonado](driver)
 - intent: inform
   examples: |
     - oh sorry, in [2016](year)
@@ -287,6 +304,7 @@ nlu:
     - who drove for [Sauber](constructor) in [2015](year)?
     - I want the [Force India](constructor) drivers for the [2018](year) season?
     - [2014](year) [Renault](constructor) drivers
+    - [2014](year) [Haas](constructor) pilots
 - intent: search_next_race
   examples: |
     - When it's going to be the next race?
